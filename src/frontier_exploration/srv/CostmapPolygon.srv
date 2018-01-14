@@ -1,0 +1,4 @@
+geometry_msgs/PoseStamped robot_pose_current
+geometry_msgs/PolygonStamped costmap_boundary
+---
+geometry_msgs/PolygonStamped sweeps_boundary

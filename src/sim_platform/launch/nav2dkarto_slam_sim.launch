@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+Provides a reasonable set of parameters for running Karto on a robot
+Assumes an 'odom_combined' frame, that provides reasonably accurate odometry
+-->
+
+<launch>
+
+  <param name="/use_sim_time" value="true"/>
+  <rosparam file="$(find sim_platform)/launch/param/ros.yaml"/>
+  <node name="Mapper" pkg="nav2d_karto" type="mapper" output="screen">
+	<!--remap from="scan" to="base_scan"/-->
+	<!--param name="laser_frame" value="laser_sensor_link"/>
+        <param name="robot_frame" value="base_footprint"/>
+        <param name="odometry_frame" value="odom"/>
+	<param name="offset_frame" value="odom_offset"/>
+        <param name="map_frame" value="25"/-->
+	<rosparam file="$(find sim_platform)/launch/param/mapper.yaml"/>
+</node>
+ <!--
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="freq" value="30.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    <remap from="imu_data" to="/mobile_base/sensors/imu_data"/>
+  </node>
+  -->
+   <!--node name="RVIZ" pkg="rviz" type="rviz" args=" -d $(find nav2d_karto)/launch/nav2d_karto.rviz" /-->
+  <!--node pkg="slam_karto" type="slam_karto" name="slam_karto" output="screen">
+
+    <param name="map_frame" value="map"/>
+    <param name="base_frame" value="base_footprint"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="map_update_interval" value="25"/>
+    <param name="resolution" value="0.01"/>
+    <rosparam command="load" file="$(find slam_karto)/config/mapper_params.yaml" />
+
+  </node-->
+  <node name="RVIZ" pkg="rviz" type="rviz" args=" -d $(find nav2d_karto)/launch/nav2d_karto.rviz" /> 
+  <node pkg="tf" type="static_transform_publisher" name="world2map" args="0 0 0 0 0 0  world map 100" />
+</launch>

@@ -1,0 +1,7 @@
+-I/home/chenrui/catkin_ws/src/build_dir/source_dir
+-I/home/chenrui/catkin_ws/src/build_dir
+-I/usr/include/qt4
+-DNDEBUG
+-o
+/home/chenrui/catkin_ws/src/build_dir/demos/mandelbrot/mandelbrot.moc
+/home/chenrui/catkin_ws/src/build_dir/source_dir/demos/mandelbrot/mandelbrot.h

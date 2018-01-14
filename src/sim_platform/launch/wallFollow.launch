@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <node pkg="dem_wall_following" type="wallFollowing" name="wallFollowing"  output="screen">
+    <!--remap from="/scan" to="/base_scan"/>
+    <remap from="/cmd_vel_mux/input/teleop" to="/base_controller/command"/-->
+  </node>
+
+  
+</launch>

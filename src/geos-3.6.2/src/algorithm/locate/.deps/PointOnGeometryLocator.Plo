@@ -1,0 +1,7 @@
+PointOnGeometryLocator.lo: PointOnGeometryLocator.cpp \
+ /usr/include/stdc-predef.h \
+ ../../../include/geos/algorithm/locate/PointOnGeometryLocator.h
+
+/usr/include/stdc-predef.h:
+
+../../../include/geos/algorithm/locate/PointOnGeometryLocator.h:

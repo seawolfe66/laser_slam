@@ -1,0 +1,11 @@
+Log file created at: 2017/09/15 15:47:50
+Running on machine: liying-MS-7996
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0915 15:47:50.802361 26103 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0915 15:47:50.802513 26103 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0915 15:47:50.802561 26103 frontier_search.cpp:35] enter into >searchFrom >start search
+I0915 15:47:50.802567 26103 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0915 15:50:00.036924 26103 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0915 15:50:00.036959 26103 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0915 15:50:00.037009 26103 frontier_search.cpp:35] enter into >searchFrom >start search
+I0915 15:50:00.037014 26103 frontier_search.cpp:38] enter into >searchFrom >lock costmap

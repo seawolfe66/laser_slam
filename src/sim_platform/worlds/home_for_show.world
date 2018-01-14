@@ -1,0 +1,1135 @@
+<?xml version="1.0" ?>
+<sdf version='1.4'>
+  <world name='default'>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- Own physics settings to speed up simulation -->
+    <physics type='ode'>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>100</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <!-- INSERT: Bound and Obstacles here -->
+    <!--<model name='cinder_block_bound_1'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-1.75 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_2'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-1.25 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_3'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-0.75 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_4'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-0.25 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_5'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_6'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_7'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_8'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_9'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 1.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_10'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 1.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_11'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 0.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_12'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 0.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_13'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 -0.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_14'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 -0.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_15'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 -1.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_16'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>2.125 -1.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_17'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_18'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_19'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_20'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_21'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-0.25 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_22'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-0.75 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_23'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-1.25 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_24'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-1.75 -2.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_25'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 -1.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_26'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 -1.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_27'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 -0.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_28'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 -0.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_29'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 0.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_30'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 0.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_31'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 1.25 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_bound_32'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>-2.125 1.75 0 0 0 1.5708</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_1'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 0.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_2'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 0.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_3'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 0.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_4'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.25 0.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_5'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 0.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_6'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 0.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_7'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 0.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_1_8'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>0.75 0.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_1'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -1.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_2'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -1.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_3'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -1.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_4'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -1.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_5'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -1.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_6'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -1.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_7'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -1.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_2_8'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -1.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_1'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -0.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_2'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -0.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_3'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -0.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_4'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.25 -0.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_5'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -0.875 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_6'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -0.625 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_7'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -0.375 0 0 0 0</pose>
+      <static>1</static>
+    </model>
+    <model name='cinder_block_obstacle_3_8'>
+      <include>
+        <uri>model://cinder_block</uri>
+      </include>
+      <pose>1.75 -0.125 0 0 0 0</pose>
+      <static>1</static>
+    </model>-->
+
+<model name='partnerX2'>
+    <pose>0 0 0 0 0 0.01</pose>
+   <!-- <link name='Door_2'>
+      <collision name='Door_2_Collision'>
+        <geometry>
+          <box>
+            <size>1 0.2 2</size>
+          </box>
+        </geometry>
+        <pose>0 0 1 0 -0 0</pose>
+      </collision>
+      <visual name='Door_2_Visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 0.2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.501052 -5.39794 0 0 0 -3.12723</pose>
+    </link>
+    <link name='Door_4'>
+      <collision name='Door_4_Collision'>
+        <geometry>
+          <box>
+            <size>1 0.2 2</size>
+          </box>
+        </geometry>
+        <pose>0 0 1 0 -0 0</pose>
+      </collision>
+      <visual name='Door_4_Visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1 0.2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>1.63017 -5.41253 0 0 0 -3.12553</pose>
+    </link>
+    <link name='Door_5'>
+      <collision name='Door_5_Collision'>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <pose>0 0 1 0 -0 0</pose>
+      </collision>
+      <visual name='Door_5_Visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-0.267325 -6.10253 0 0 0 -1.56688</pose>
+    </link>
+    <link name='Door_6'>
+      <collision name='Door_6_Collision'>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <pose>0 0 1 0 -0 0</pose>
+      </collision>
+      <visual name='Door_6_Visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-0.25745 -7.90683 0 0 0 -1.5708</pose>
+    </link>
+-->
+    <link name='Door_7'>
+      <collision name='Door_7_Collision'>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <pose>0 0 1 0 -0 0</pose>
+      </collision>
+      <visual name='Door_7_Visual'>
+        <pose>0 0 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9 0.2 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>4.29262 -12.3678 0 0 0 -1.5051</pose>
+    </link>
+
+    <link name='Wall_0'>
+      <collision name='Wall_0_Collision'>
+        <geometry>
+          <box>
+            <size>6.55 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_0_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>6.55 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>1 -0.84 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_12'>
+      <collision name='Wall_12_Collision'>
+        <geometry>
+          <box>
+            <size>11.2163 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_12_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>11.2163 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>4.35192 -6.37253 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_18'>
+      <collision name='Wall_18_Collision'>
+        <geometry>
+          <box>
+            <size>2.12818 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_18_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.12818 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>3.21709 -5.4475 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_22'>
+      <collision name='Wall_22_Collision'>
+        <geometry>
+          <box>
+            <size>2.2 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_22_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.2 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-1.02483 -7.37903 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_24'>
+      <collision name='Wall_24_Collision'>
+        <geometry>
+          <box>
+            <size>0.897 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_24_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.897 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-0.2445 -7.0055 0 0 -0 1.5708</pose>
+    </link>
+    <link name='Wall_3'>
+      <collision name='Wall_3_Collision'>
+        <geometry>
+          <box>
+            <size>12 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_3_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>12 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-2.2 -6.915 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_32'>
+      <collision name='Wall_32_Collision'>
+        <geometry>
+          <box>
+            <size>0.322527 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_32_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.322527 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-0.267 -5.6025 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_36'>
+      <collision name='Wall_36_Collision'>
+        <geometry>
+          <box>
+            <size>0.998227 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_36_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.998227 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-0.274841 -8.84358 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_38'>
+      <collision name='Wall_38_Collision'>
+        <geometry>
+          <box>
+            <size>4.35 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_38_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>4.35 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.059609 -9.4197 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_40'>
+      <collision name='Wall_40_Collision'>
+        <geometry>
+          <box>
+            <size>2.25908 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_40_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.25908 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-1.19661 -11.7737 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_43'>
+      <collision name='Wall_43_Collision'>
+        <geometry>
+          <box>
+            <size>6.66612 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_43_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>6.66612 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>1.07405 -12.9467 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_5'>
+      <collision name='Wall_5_Collision'>
+        <geometry>
+          <box>
+            <size>4.58875 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_5_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>4.58875 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>1.0575 -3.20938 0 0 0 -1.5708</pose>
+    </link>
+    <link name='Wall_7'>
+      <collision name='Wall_7_Collision'>
+        <geometry>
+          <box>
+            <size>2.12726 0.15 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_7_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.12726 0.15 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-1.05893 -5.43244 0 0 -0 0</pose>
+    </link>
+<link name='Wall_2'>
+      <collision name='Wall_2_Collision'>
+        <geometry>
+          <box>
+            <size>1.49958 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_2_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.49958 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-1.40382 -3.70244 0 0 0 -2.74889</pose>
+    </link>
+    <link name='Wall_4'>
+      <collision name='Wall_4_Collision'>
+        <geometry>
+          <box>
+            <size>0.810501 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_4_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.810501 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.960025 -2.25138 0 0 -0 1.5708</pose>
+    </link>
+    <link name='Wall_5'>
+      <collision name='Wall_5_Collision'>
+        <geometry>
+          <box>
+            <size>0.608388 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_5_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.608388 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.755867 -1.94235 0 0 -0 3.12308</pose>
+    </link>
+    <link name='Wall_6'>
+      <collision name='Wall_6_Collision'>
+        <geometry>
+          <box>
+            <size>0.795728 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_6_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.795728 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.540323 -2.23621 0 0 0 -1.60903</pose>
+    </link>
+    <link name='Wall_7'>
+      <collision name='Wall_7_Collision'>
+        <geometry>
+          <box>
+            <size>0.631068 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_7_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.631068 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>0.744472 -2.53386 0 0 -0 0</pose>
+    </link>
+    <link name='Wall_9'>
+      <collision name='Wall_9_Collision'>
+        <geometry>
+          <box>
+            <size>1.14286 0.2 2.5</size>
+          </box>
+        </geometry>
+        <pose>0 0 1.25 0 -0 0</pose>
+      </collision>
+      <visual name='Wall_9_Visual'>
+        <pose>0 0 1.25 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.14286 0.2 2.5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <pose>-1.64219 -2.23773 0 0 -0 2.61791</pose>
+    </link>
+    <static>1</static>
+  </model>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0 0 10 0 1.57079 1.57079</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>

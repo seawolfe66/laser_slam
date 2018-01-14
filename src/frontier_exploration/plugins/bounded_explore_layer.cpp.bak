@@ -1,0 +1,697 @@
+#include <frontier_exploration/bounded_explore_layer.h>
+
+#include <pluginlib/class_list_macros.h>
+#include <geometry_msgs/PolygonStamped.h>
+#include <costmap_2d/costmap_2d.h>
+#include <costmap_2d/footprint.h>
+#include <sensor_msgs/PointCloud2.h>
+#include <pcl_ros/point_cloud.h>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
+#include <boost/foreach.hpp>
+
+#include <frontier_exploration/Frontier.h>
+#include <frontier_exploration/UpdateBoundaryPolygon.h>
+#include <frontier_exploration/GetNextFrontier.h>
+#include <frontier_exploration/frontier_search.h>
+#include <frontier_exploration/geometry_tools.h>
+#include <visualization_msgs/Marker.h>
+
+PLUGINLIB_EXPORT_CLASS(frontier_exploration::BoundedExploreLayer, costmap_2d::Layer)
+
+namespace frontier_exploration
+{
+
+    using costmap_2d::LETHAL_OBSTACLE;//254
+    using costmap_2d::NO_INFORMATION;//255
+    using costmap_2d::INSCRIBED_INFLATED_OBSTACLE;//253
+    using costmap_2d::FREE_SPACE;//0
+
+    BoundedExploreLayer::BoundedExploreLayer(){}
+
+    BoundedExploreLayer::~BoundedExploreLayer(){
+        polygonService_.shutdown();
+        frontierService_.shutdown();
+        delete dsrv_;
+        dsrv_ = 0;
+    }
+
+    void BoundedExploreLayer::onInitialize(){
+
+        ros::NodeHandle nh_("~/" + name_);
+        frontier_cloud_pub = nh_.advertise<sensor_msgs::PointCloud2>("frontiers",5);
+        frontier_marker_pub_ = nh_.advertise<visualization_msgs::Marker>("frontier_visualization_marker", 10);
+        frontier_point_cloud_pub = nh_.advertise<sensor_msgs::PointCloud>("frontiers_point",50);
+        frontier_point_cloud_pub1 = nh_.advertise<sensor_msgs::PointCloud>("polygon_point",50);
+        costmap_sweeps_point_cloud_pub = nh_.advertise<sensor_msgs::PointCloud>("costmap_sweeps_point",50);
+        sweeps_areas_sub_ = nh_.subscribe("/RobotSweepsAreas", 10,  &BoundedExploreLayer::syncSweepAreas, this);
+        configured_ = false;
+        marked_ = false;
+
+        bool explore_clear_space;
+        nh_.param("explore_clear_space", explore_clear_space, true);
+        if(explore_clear_space){
+            default_value_ = NO_INFORMATION;
+        }else{
+            default_value_ = FREE_SPACE;
+        }
+
+        matchSize();
+
+        nh_.param<bool>("resize_to_boundary", resize_to_boundary_, true);
+        nh_.param<std::string>("frontier_travel_point", frontier_travel_point_, "closest");
+
+
+        polygonService_ = nh_.advertiseService("update_boundary_polygon", &BoundedExploreLayer::updateBoundaryPolygonService, this);
+        frontierService_ = nh_.advertiseService("get_next_frontier", &BoundedExploreLayer::getNextFrontierService, this);
+
+        dsrv_ = new dynamic_reconfigure::Server<costmap_2d::GenericPluginConfig>(nh_);
+        dynamic_reconfigure::Server<costmap_2d::GenericPluginConfig>::CallbackType cb = boost::bind(
+                    &BoundedExploreLayer::reconfigureCB, this, _1, _2);
+        dsrv_->setCallback(cb);
+         //ROS_INFO("99999999999990000000000000000");
+
+
+    }
+
+
+    void BoundedExploreLayer::matchSize(){
+        Costmap2D* master = layered_costmap_->getCostmap();
+        resizeMap(master->getSizeInCellsX(), master->getSizeInCellsY(), master->getResolution(),
+                  master->getOriginX(), master->getOriginY());
+         //ROS_INFO("99999999999999111111111111111111111111");
+    }
+
+
+    void BoundedExploreLayer::reconfigureCB(costmap_2d::GenericPluginConfig &config, uint32_t level){
+        enabled_ = config.enabled;
+    }
+
+    bool BoundedExploreLayer::getNextFrontierService(frontier_exploration::GetNextFrontier::Request &req, frontier_exploration::GetNextFrontier::Response &res){
+        return getNextFrontier(req.start_pose, res.next_frontier);
+    }
+
+    /** get the frontier polygon */
+    bool BoundedExploreLayer::getFrontierPolygon(geometry_msgs::Polygon &frontier_polygon){ //chenrui
+
+       // int number = frontier_list.size();
+        int number = frontier_list_copy.size();
+        Frontier selected;
+        //std::list<Frontier> orderedlist;
+        //std::list<Frontier> rawcopylist(frontier_list);
+        
+        std::list<Frontier>::iterator it;
+        std::list<Frontier>::iterator cancel;
+
+        if(frontier_list.size() == 0){
+            ROS_DEBUG("No frontiers found, return false");
+            return false;
+        }
+
+        geometry_msgs::PointStamped in, out;
+        selected = rawcopylist.front();
+        orderedlist.push_back(selected); //push the first element into the orderlist 
+        rawcopylist.pop_front();  //del the first element
+ 
+
+
+        double distance = 0;
+        int index = 0;  
+        while(!rawcopylist.empty()){
+                   
+            Frontier last = orderedlist.back(); //get the last frontier of orderlist 
+            //compute the distance between orderlist last frontier and rawcopylist first frontier
+            Frontier first = rawcopylist.front();
+            distance = sqrt(pow((double(last.initial.x)-double(first.initial.x)),2.0) + pow((double(last.initial.y)-double(first.initial.y)),2.0)); 
+            cancel = rawcopylist.begin();
+
+            for(it = rawcopylist.begin();it!=rawcopylist.end();it++){
+    
+                double temp = sqrt(pow((double(last.initial.x)-double((*it).initial.x)),2.0) + pow((double(last.initial.y)-double((*it).initial.y)),2.0));
+
+                if (temp <= distance){
+                   selected = *it;
+                   distance = temp;
+                   cancel = it;  
+                }
+             }
+             orderedlist.push_back(selected);
+             rawcopylist.erase(cancel);
+
+          }
+
+        //get the pos into the polygon and point clound
+        int max_all;
+        max_all = orderedlist.size();
+        //ROS_INFO("max_all = %d" , max_all);
+        sensor_msgs::PointCloud cloud;
+        cloud.header.stamp = ros::Time::now();
+        cloud.header.frame_id = "/map";
+
+        cloud.points.resize(max_all);
+
+        //we'll also add an intensity channel to the cloud
+        cloud.channels.resize(1);
+        cloud.channels[0].name = "intensities";
+        cloud.channels[0].values.resize(max_all);
+
+         
+         BOOST_FOREACH(Frontier frontier, orderedlist){
+            //load frontier into visualization poitncloud
+  /*          geometry_msgs::Point p;
+            p.x = frontier.initial.x;
+            p.y = frontier.initial.y;
+*/
+            cloud.points[index].x = frontier.initial.x;
+            cloud.points[index].y = frontier.initial.y;
+            cloud.points[index].z = frontier.initial.z;
+            cloud.channels[0].values[index] = 100;
+            index++; 
+
+           //need to transfer
+            in.point = frontier.initial;
+            tf_listener_.transformPoint(layered_costmap_->getGlobalFrameID(),in,out);
+            frontier_polygon.points.push_back(costmap_2d::toPoint32(out.point));
+            //show clound point 
+     
+        }
+         //show the clound point 
+        frontier_point_cloud_pub1.publish(cloud);
+
+
+
+         return true; 
+
+    }
+
+    bool BoundedExploreLayer::getNextFrontier(geometry_msgs::PoseStamped start_pose, geometry_msgs::PoseStamped &next_frontier){
+        //3333333333333333333333333333333
+         //ROS_INFO("999999999999999333333333333333333333");
+
+        //wait for costmap to get marked with boundary
+        ROS_ERROR(">>>>>enter into: BoundedExploreLayer::getNextFrontier");
+        ros::Rate r(10);
+        while(!marked_){
+            ros::spinOnce();
+            r.sleep();
+            //ROS_INFO("66666666666666666999999999999999991");
+        }
+        //44444444444444444444444444444444444444444
+        ROS_INFO("getnextfrontier 0");
+        if(start_pose.header.frame_id != layered_costmap_->getGlobalFrameID()){
+            //error out if no transform available
+            if(!tf_listener_.waitForTransform(layered_costmap_->getGlobalFrameID(), start_pose.header.frame_id,ros::Time::now(),ros::Duration(10))) {
+                ROS_ERROR_STREAM("Couldn't transform from "<<layered_costmap_->getGlobalFrameID()<<" to "<< start_pose.header.frame_id);
+                return false;
+            }
+            geometry_msgs::PoseStamped temp_pose = start_pose;
+            tf_listener_.transformPose(layered_costmap_->getGlobalFrameID(),temp_pose,start_pose);
+            //ROS_INFO("6666666664444444444444444411111111111");
+        }
+        ROS_ERROR(">>>>getNextFrontier: step 1");
+        //555555555555555555555
+         //ROS_INFO("666666666666666661111111111111111111");
+        //initialize frontier search implementation
+        FrontierSearch frontierSearch(*(layered_costmap_->getCostmap()),frontier_list_new);
+        //FrontierSearch frontierSearch(*(layered_costmap_->getCostmap()));
+        //get list of frontiers from search implementation
+        ROS_ERROR(">>>>getNextFrontier: step 2");
+
+
+        frontier_list.clear();
+        frontier_list = frontierSearch.searchFrom(start_pose.pose.position);
+        //std::list<Frontier> frontier_list = frontierSearch.searchFrom(start_pose.pose.position);
+
+        ROS_ERROR(">>>chenrui>>>after frontierSearch.searchFrom");
+        if(frontier_list.size() == 0){
+            ROS_DEBUG("No frontiers found, exploration complete");
+            return false;
+        }
+
+        //create placeholder for selected frontier
+        Frontier selected;
+        selected.min_distance = std::numeric_limits<double>::infinity();
+
+        //pointcloud for visualization purposes
+        pcl::PointCloud<pcl::PointXYZI> frontier_cloud_viz;
+        pcl::PointXYZI frontier_point_viz(100);
+        int max;
+
+      //  geometry_msgs::PointStamped in_;
+        // geometry_msgs::Polygon frontier_polygon_;
+       // in_.header = frontier_polygon_stamped.header;
+       // BOOST_FOREACH(geometry_msgs::Point32 point32, polygon_stamped.polygon.points){
+         //   in.point = costmap_2d::toPoint(point32);
+        //    tf_listener_.transformPoint(layered_costmap_->getGlobalFrameID(),in,out);
+        //    polygon_.points.push_back(costmap_2d::toPoint32(out.point));
+        //初始化
+             line_strip_list.header.frame_id = "/map";
+             line_strip_list.header.stamp = ros::Time::now();
+             line_strip_list.ns = "frontier_points_and_lines";
+             line_strip_list.action = visualization_msgs::Marker::ADD;
+             line_strip_list.pose.orientation.w = 1.0;
+
+             line_strip_list.id = 4;
+
+
+            //初始化形状
+             line_strip_list.type = visualization_msgs::Marker::LINE_STRIP;
+
+            line_strip_list.scale.x = 0.1;
+
+            // Line strip is green
+                line_strip_list.color.g = 1.0;
+                line_strip_list.color.a = 1.0;
+
+    //frontier_point_cloud_pub
+            int max_all;
+            max_all = frontier_list_new.size();
+            //ROS_INFO("max_all = %d" , max_all);
+            sensor_msgs::PointCloud cloud;
+            cloud.header.stamp = ros::Time::now();
+            cloud.header.frame_id = "/map";
+
+            cloud.points.resize(max_all);
+
+                //we'll also add an intensity channel to the cloud
+            cloud.channels.resize(1);
+            cloud.channels[0].name = "intensities";
+            cloud.channels[0].values.resize(max_all);
+            //ROS_INFO("6666666666666666622222222222222222222222");
+            for (int ii = 0; ii < max_all; ii++)
+                {
+                   cloud.points[ii].x = frontier_list_new[ii].x;
+                   cloud.points[ii].y = frontier_list_new[ii].y;
+                   cloud.points[ii].z = frontier_list_new[ii].z;
+                   cloud.channels[0].values[ii] = 100;
+                        }
+            frontier_point_cloud_pub.publish(cloud);
+             //ROS_INFO("9999999999999999944444444444444444444444");
+            //frontier_list_new.clear();
+            //////
+
+        BOOST_FOREACH(Frontier frontier, frontier_list){
+            //load frontier into visualization poitncloud
+            frontier_point_viz.x = frontier.initial.x;
+            frontier_point_viz.y = frontier.initial.y;
+            frontier_cloud_viz.push_back(frontier_point_viz);
+            geometry_msgs::Point p;
+            p.x = frontier.initial.x;
+            p.y = frontier.initial.y;
+            line_strip_list.points.push_back(p);
+           // in_.point.x =  frontier.initial.x;
+           // in_.point.y =  frontier.initial.y;
+          //  frontier_polygon_.points.push_back(in_.point);
+
+            //check if this frontier is the nearest to robot
+            if (frontier.min_distance < selected.min_distance){
+                selected = frontier;
+                max = frontier_cloud_viz.size()-1;
+            }
+        }
+
+        //color selected frontier
+        frontier_cloud_viz[max].intensity = 100;
+
+        //publish visualization point cloud
+        sensor_msgs::PointCloud2 frontier_viz_output;
+        pcl::toROSMsg(frontier_cloud_viz,frontier_viz_output);
+        frontier_viz_output.header.frame_id = layered_costmap_->getGlobalFrameID();
+        frontier_viz_output.header.stamp = ros::Time::now();
+        frontier_cloud_pub.publish(frontier_viz_output);
+        frontier_marker_pub_.publish(line_strip_list);
+
+        //set goal pose to next frontier
+        next_frontier.header.frame_id = layered_costmap_->getGlobalFrameID();
+        next_frontier.header.stamp = ros::Time::now();
+
+        //
+        if(frontier_travel_point_ == "closest"){
+            next_frontier.pose.position = selected.initial;
+        }else if(frontier_travel_point_ == "middle"){
+            next_frontier.pose.position = selected.middle;
+        }else if(frontier_travel_point_ == "centroid"){
+            next_frontier.pose.position = selected.centroid;
+        }else{
+            ROS_ERROR("Invalid 'frontier_travel_point' parameter, falling back to 'closest'");
+            next_frontier.pose.position = selected.initial;
+        }
+
+        next_frontier.pose.orientation = tf::createQuaternionMsgFromYaw( yawOfVector(start_pose.pose.position, next_frontier.pose.position) );
+        return true;
+        ROS_ERROR("end of: getNext frontier");
+    }
+
+    bool BoundedExploreLayer::updateBoundaryPolygonService(frontier_exploration::UpdateBoundaryPolygon::Request &req, frontier_exploration::UpdateBoundaryPolygon::Response &res){
+
+        return updateBoundaryPolygon(req.explore_boundary);
+
+    }
+    void BoundedExploreLayer::syncSweepAreas(const sweeps_areas::sweeps & areas){
+          sweeps_areas_polygon = areas;
+         // int sweeps_x_;
+         // int sweeps_y_;
+        //  sweeps_x_ = sweeps_areas_polygon.sweeps_x.size();
+        //  sweeps_y_ = sweeps_areas_polygon.sweeps_y.size();
+         // //ROS_INFO("66666666666666666666666777777777777777777777722222222222222222222");
+         // //ROS_INFO("sweeps_x = %d, sweeps_y = %d", sweeps_x_ , sweeps_y_ );
+          /*sweeps_areas_polygon.sweeps_areas.info.origin.position.x = areas.sweeps_areas.info.origin.position.x;
+          sweeps_areas_polygon.sweeps_areas.info.origin.position.y = areas.sweeps_areas.info.origin.position.y;
+          sweeps_areas_polygon.sweeps_x.resize(areas.sweeps_areas.info.height);
+          sweeps_areas_polygon.sweeps_y.resize(areas.sweeps_areas.info.width);
+          for(int i = 0; i< sweeps_areas_polygon.sweeps_x.size(); i++ ){
+              sweeps_areas_polygon.sweeps_x[i] = areas.sweeps_x[i];
+          }
+          for(int j= 0; j< sweeps_areas_polygon.sweeps_y.size(); j++){
+             sweeps_areas_polygon.sweeps_y[j] = areas.sweeps_y[j];
+          }*/
+
+
+    }
+
+    void BoundedExploreLayer::reset(){
+
+        //reset costmap_ char array to default values
+        marked_ = false;
+        configured_ = false;
+        memset(costmap_, default_value_, size_x_ * size_y_ * sizeof(unsigned char));
+
+    }
+
+    bool BoundedExploreLayer::updateBoundaryPolygon(geometry_msgs::PolygonStamped polygon_stamped){
+
+        ROS_ERROR(">>>enter into: updateBoundaryPolygon");
+        //clear existing boundary, if any
+        polygon_.points.clear();
+        //frontier_list_new.clear();
+
+        //error if no transform available between polygon and costmap
+        if(!tf_listener_.waitForTransform(layered_costmap_->getGlobalFrameID(), polygon_stamped.header.frame_id,ros::Time::now(),ros::Duration(10))) {
+            ROS_ERROR_STREAM("Couldn't transform from "<<layered_costmap_->getGlobalFrameID()<<" to "<< polygon_stamped.header.frame_id);
+            return false;
+        }
+        ROS_ERROR(">>>updateBoundaryPolygon 0");
+
+        //Transform all points of boundary polygon into costmap frame
+        geometry_msgs::PointStamped in, out;
+        in.header = polygon_stamped.header;
+        BOOST_FOREACH(geometry_msgs::Point32 point32, polygon_stamped.polygon.points){
+            in.point = costmap_2d::toPoint(point32);
+            tf_listener_.transformPoint(layered_costmap_->getGlobalFrameID(),in,out);
+            polygon_.points.push_back(costmap_2d::toPoint32(out.point));
+        }
+
+        ROS_ERROR(">>>updateBoundaryPolygon 1");
+
+        //if empty boundary provided, set to whole map
+        if(polygon_.points.empty()){
+            geometry_msgs::Point32 temp;
+            temp.x = getOriginX();
+            temp.y = getOriginY();
+            polygon_.points.push_back(temp);
+            temp.y = getSizeInMetersY();
+            polygon_.points.push_back(temp);
+            temp.x = getSizeInMetersX();
+            polygon_.points.push_back(temp);
+            temp.y = getOriginY();
+            polygon_.points.push_back(temp);
+        }
+        ROS_ERROR(">>>updateBoundaryPolygon 2");
+
+        if(resize_to_boundary_){
+           ROS_ERROR(">>>updateBoundaryPolygon 3");
+            updateOrigin(0,0);
+
+            //Find map size and origin by finding min/max points of polygon
+            double min_x = std::numeric_limits<double>::infinity();
+            double min_y = std::numeric_limits<double>::infinity();
+            double max_x = -std::numeric_limits<double>::infinity();
+            double max_y = -std::numeric_limits<double>::infinity();
+
+            BOOST_FOREACH(geometry_msgs::Point32 point, polygon_.points){
+                min_x = std::min(min_x,(double)point.x);
+                min_y = std::min(min_y,(double)point.y);
+                max_x = std::max(max_x,(double)point.x);
+                max_y = std::max(max_y,(double)point.y);
+            }
+            ROS_INFO("min_x = %f, max_x = %f, min_y = %f, max_y = %f",min_x , max_x, min_y, max_y);
+            ROS_INFO("88889999999999999992222222222222222222222");
+
+           // updateOrigin(min_x, min_y);
+
+            //resize the costmap to polygon boundaries, don't change resolution
+            int size_x, size_y;
+            worldToMapNoBounds(max_x - min_x, max_y - min_y, size_x, size_y);
+            layered_costmap_->resizeMap(size_x, size_y, layered_costmap_->getCostmap()->getResolution(), min_x, min_y);
+            matchSize();
+            ROS_ERROR(">>>updateBoundaryPolygon 4");
+        }
+
+        configured_ = true;
+        marked_ = false;
+        return true;
+        ROS_ERROR("end : updateBoundaryPolygon>>>");
+    }
+
+
+    void BoundedExploreLayer::updateBounds(double robot_x, double robot_y, double robot_yaw, double* min_x,
+                                           double* min_y, double* max_x, double* max_y){
+
+        //check if layer is enabled and configured with a boundary
+        if (!enabled_ || !configured_){ return; }
+
+        //update the whole costmap
+        *min_x = getOriginX();
+        *min_y = getOriginY();
+        *max_x = getSizeInMetersX()+getOriginX();
+        *max_y = getSizeInMetersY()+getOriginY();
+
+    }
+
+    void BoundedExploreLayer::updateCosts(costmap_2d::Costmap2D& master_grid, int min_i, int min_j, int max_i, int max_j){
+        //check if layer is enabled and configured with a boundary
+        if (!enabled_ || !configured_){ return; }
+
+        //draw lines between each point in polygon
+        MarkCell marker(costmap_, LETHAL_OBSTACLE);
+        //MarkCell marker(costmap_, NO_INFORMATION);
+
+        //circular iterator
+        for(int i = 0, j = polygon_.points.size()-1; i < polygon_.points.size(); j = i++){
+
+            int x_1, y_1, x_2, y_2;
+            worldToMapEnforceBounds(polygon_.points[i].x, polygon_.points[i].y, x_1,y_1);
+           // ROS_INFO("polygon_.points[i].x = %f, polygon_.points[i].y = %f, x_1 = %d, y_1 = %d, i = %d",polygon_.points[i].x , polygon_.points[i].y, x_1, y_1, i);
+            worldToMapEnforceBounds(polygon_.points[j].x, polygon_.points[j].y, x_2,y_2);
+        //    ROS_INFO("polygon_.points[j].x = %f, polygon_.points[j].y = %f, x_2 = %d, y_2 = %d, j = %d",polygon_.points[j].x , polygon_.points[j].y, x_2, y_2, j);
+
+            raytraceLine(marker,x_1,y_1,x_2,y_2);
+        }
+        //update the master grid from the internal costmap
+        mapUpdateKeepObstacles(master_grid, min_i, min_j, max_i, max_j);
+       /* unsigned char* master_ = master_grid.getCharMap();
+        unsigned int span_ = master_grid.getSizeInCellsX();
+        for(int jj= 0; jj< sweeps_areas_polygon.sweeps_y.size(); jj++){
+            for(int ii = 0; ii< sweeps_areas_polygon.sweeps_x.size(); ii++ ){
+                unsigned int it_ = span_*jj+ii;
+               master_[it_] = 252;
+            }
+            //sweeps_areas_polygon.sweeps_x[i] = areas.sweeps_x[i];
+        }*/
+
+
+
+
+    }
+
+    void BoundedExploreLayer::mapUpdateKeepObstacles(costmap_2d::Costmap2D& master_grid, int min_i, int min_j, int max_i, int max_j){
+        if (!enabled_)
+            return;
+
+        ROS_ERROR("begin to BoundedExploreLayer::mapUpdateKeepObstacles");
+        unsigned char* master = master_grid.getCharMap();
+        unsigned int span = master_grid.getSizeInCellsX();
+        double resolution_explore = master_grid.getResolution();
+        //ROS_INFO("888888888888888888889999999999999992222222222222222222222");
+
+        for (int j = min_j; j < max_j; j++)
+        {
+            unsigned int it = span*j+min_i;
+            for (int i = min_i; i < max_i; i++)
+            {
+                //only update master grid if local costmap cell is lethal/higher value, and is not overwriting a lethal obstacle in the master grid
+                if(master[it] != LETHAL_OBSTACLE && (costmap_[it] == LETHAL_OBSTACLE || costmap_[it] > master[it])){
+               // if(master[it] != NO_INFORMATION && (costmap_[it] == NO_INFORMATION || costmap_[it] > master[it])){
+                    master[it] = costmap_[it];
+
+                }
+               // if(sweeps_areas_polygon.sweeps_x[i]==1 && sweeps_areas_polygon.sweeps_y[j]==1){
+                 //   master[it] = LETHAL_OBSTACLE;
+               // }
+                it++;
+            }
+
+        }
+        //ROS_INFO("44444444444444444444444999999999999992222222222222222222222");
+        ROS_INFO("min_i = %d, max_i = %d, min_j = %d, max_j = %d, resolution_explore = %f" , min_i, max_i,min_j, max_j, resolution_explore);
+         //ROS_INFO("77777777777777777779999999999999992222222222222222222222");
+         double map_origin_x = master_grid.getOriginX();
+         double map_origin_y = master_grid.getOriginY();
+         double sweeps_areas_polygon_origin_x = sweeps_areas_polygon.sweeps_areas.info.origin.position.x;
+         double sweeps_areas_polygon_origin_y = sweeps_areas_polygon.sweeps_areas.info.origin.position.y;
+         int map_origin_index_x = (int)((map_origin_x - sweeps_areas_polygon.sweeps_areas.info.origin.position.x)/resolution_explore);
+         int map_origin_index_y = (int)((map_origin_y - sweeps_areas_polygon.sweeps_areas.info.origin.position.y)/resolution_explore);
+
+         //costmap_sweeps_point_cloud_pub
+                 int sweeps_max_all;
+                 sweeps_max_all = (max_i - min_i)*(max_j - min_j) ; //chenrui add *2
+                 //ROS_INFO("max_all = %d" , max_all);
+                 sensor_msgs::PointCloud cosmap_sweeps_cloud;
+            /*
+                 cosmap_sweeps_cloud.header.stamp = ros::Time::now();
+                 cosmap_sweeps_cloud.header.frame_id = "/map";
+
+                 cosmap_sweeps_cloud.points.resize(sweeps_max_all);
+
+                     //we'll also add an intensity channel to the cloud
+                 cosmap_sweeps_cloud.channels.resize(1);
+                 cosmap_sweeps_cloud.channels[0].name = "intensities";
+                 cosmap_sweeps_cloud.channels[0].values.resize(sweeps_max_all);
+                 */
+                 ROS_INFO(">>>>>chenrui>>>x1");
+                /* for (int ii = 0; ii < max_all; ii++)
+                     {
+                        cloud.points[ii].x = frontier_list_new[ii].x;
+                        cloud.points[ii].y = frontier_list_new[ii].y;
+                        cloud.points[ii].z = frontier_list_new[ii].z;
+                        cloud.channels[0].values[ii] = 100;
+                             }*/
+                  //costmap_sweeps_point_cloud_pub.publish(cosmap_sweeps_cloud);
+
+                  //ROS_INFO("9999999999999999944444444444444444444444");
+
+         //int map_origin_index_x = (int)((map_origin_x - sweeps_areas_polygon.sweeps_areas.info.origin.position.x)/sweeps_areas_polygon.sweeps_areas.info.resolution);
+        // int map_origin_index_y = (int)((map_origin_y - sweeps_areas_polygon.sweeps_areas.info.origin.position.y)/sweeps_areas_polygon.sweeps_areas.info.resolution);
+         //ROS_INFO("000000000000000000999999999999992222222222222222222222");
+        // ROS_INFO("map_origin_index_x = %d, map_origin_index_y = %d", map_origin_index_x , map_origin_index_y );
+        // ROS_INFO("map_origin_x = %f, map_origin_y = %f", map_origin_x , map_origin_y );
+        // ROS_INFO("sweeps_areas_polygon_origin_x = %f, sweeps_areas_polygon_origin_y = %f", sweeps_areas_polygon_origin_x , sweeps_areas_polygon_origin_y );
+       /*  if (map_origin_index_x > 0 && map_origin_index_x < sweeps_areas_polygon.sweeps_x.size())
+         {
+             min_sweeps_x = map_origin_index_x;
+         }else{
+             min_sweeps_x = 0;
+         }
+         if ((min_sweeps_x == map_origin_index_x) && (map_origin_index_x + span < sweeps_areas_polygon.sweeps_x.size()))
+         {
+             max_sweeps_x = map_origin_index_x + span;
+         }else{
+             max_sweeps_x = sweeps_areas_polygon.sweeps_x.size();
+         }
+         if (map_origin_index_y > 0 && (map_origin_index_y < sweeps_areas_polygon.sweeps_y.size()))
+         {
+             min_sweeps_y = map_origin_index_y;
+         }else{
+              min_sweeps_y = 0;
+         }
+         if (( min_sweeps_y == map_origin_index_y) && (map_origin_index_x + master_grid.getSizeInCellsY()) < sweeps_areas_polygon.sweeps_y.size())
+         {
+             max_sweeps_y = map_origin_index_y + master_grid.getSizeInCellsY();
+         }else{
+              max_sweeps_y = sweeps_areas_polygon.sweeps_y.size();
+         }*/
+         min_sweeps_x = map_origin_index_x + min_i;
+         max_sweeps_x = map_origin_index_x + max_i;
+         min_sweeps_y = map_origin_index_y + min_j;
+         max_sweeps_y = map_origin_index_y + max_j;
+         sweeps_points_num = 0;
+
+
+         int k = 0;
+        ROS_ERROR("step 2");
+         //ROS_INFO("2222222222222222222999999999999992222222222222222222222");
+         //ROS_INFO("min_sweeps_x = %d, max_sweeps_x = %d, min_sweeps_y = %d, max_sweeps_y = %d", min_sweeps_x , max_sweeps_x, min_sweeps_y ,max_sweeps_y);
+       /* for(int jj= min_sweeps_y; jj< max_sweeps_y; jj++){
+            if(sweeps_areas_polygon.sweeps_y[jj] == 1)
+            {
+                for(int ii = min_sweeps_x; ii< max_sweeps_x; ii++ ){
+                    if (sweeps_areas_polygon.sweeps_x[ii] == 1)
+                    {
+                        unsigned int it_ = span*(jj- min_sweeps_y) + (ii-min_sweeps_x);
+                        master[it_] = 200;
+                        sweeps_points_num = sweeps_points_num + 1;
+                        cosmap_sweeps_cloud.points[k].x = (ii-min_sweeps_x) * resolution_explore + map_origin_x;
+                        cosmap_sweeps_cloud.points[k].y = (jj-min_sweeps_y) * resolution_explore + map_origin_y;
+                        cosmap_sweeps_cloud.points[k].z = 0;
+                        cosmap_sweeps_cloud.channels[0].values[k] = 100;
+                        k = k + 1;
+                        ROS_INFO("sweeps_points_num = %d, ii = %d, jj = %d,min_sweeps_x = %d, min_sweeps_y = %d, it_ = %d", sweeps_points_num , ii, jj, min_sweeps_x, min_sweeps_y, it_);
+                    }
+                }
+            }
+        }*/
+        for(int ii = 0; ii < sweeps_areas_polygon.num; ii++){
+            int sweeps_x_;
+            int sweeps_y_;
+            sweeps_x_ = (int)((sweeps_areas_polygon.sweeps_poses.poses[ii].position.x - map_origin_x)/resolution_explore);
+            sweeps_y_ = (int)((sweeps_areas_polygon.sweeps_poses.poses[ii].position.y - map_origin_y)/resolution_explore);
+            if((sweeps_x_ >= min_i && sweeps_x_<=max_i) && (sweeps_y_ >= min_j && sweeps_y_<=max_j)){
+                unsigned int it_ = span*sweeps_y_ + sweeps_x_;
+                master[it_] = 200;
+                /*
+                cosmap_sweeps_cloud.points[k].x = sweeps_areas_polygon.sweeps_poses.poses[ii].position.x;
+                cosmap_sweeps_cloud.points[k].y = sweeps_areas_polygon.sweeps_poses.poses[ii].position.y;
+                cosmap_sweeps_cloud.points[k].z = 0;
+                cosmap_sweeps_cloud.channels[0].values[k] = 100;
+                k = k + 1;
+                */
+            }
+        }
+        ROS_ERROR(">>>>they are friends>>>>");
+       /*  sweeps_areas_.sweeps_poses.poses[sweeps_point_num].position.x
+
+         for(int jj = 0; jj < sweeps_areas_.sweeps_x.size(); jj++ ){
+             for(int ii = 0; ii < sweeps_areas_polygon.sweeps_y.size(); ii++ ){
+                 if ((sweeps_areas_polygon.sweeps_x[ii]) != 0.0 && (sweeps_areas_polygon.sweeps_y[jj] != 0.0)){
+                     int sweeps_x_;
+                     int sweeps_y_;
+                     sweeps_x_ = (int)((sweeps_areas_polygon.sweeps_x[ii] - map_origin_x)/resolution_explore);
+                     sweeps_y_ = (int)((sweeps_areas_polygon.sweeps_y[jj] - map_origin_y)/resolution_explore);
+                     if((sweeps_x_ >= min_i && sweeps_x_<=max_i) && (sweeps_y_ >= min_j && sweeps_y_<=max_j)){
+                         unsigned int it_ = span*sweeps_y_ + sweeps_x_;
+                         master[it_] = 200;
+                         cosmap_sweeps_cloud.points[k].x = sweeps_areas_polygon.sweeps_x[ii];
+                         cosmap_sweeps_cloud.points[k].y = sweeps_areas_polygon.sweeps_y[jj];
+                         cosmap_sweeps_cloud.points[k].z = 0;
+                         cosmap_sweeps_cloud.channels[0].values[k] = 100;
+                         k = k + 1;
+                     }
+                 }
+             }
+         }*/
+
+            /*for(int ii = min_sweeps_x; ii< max_sweeps_x; ii++ ){
+
+                    if ((sweeps_areas_polygon.sweeps_x[ii]) == 1 && (sweeps_areas_polygon.sweeps_y[jj] == 1))
+                    {
+                        unsigned int it_ = span*(jj- min_sweeps_y) + (ii-min_sweeps_x);
+                        master[it_] = 200;
+                       // //ROS_INFO("55555555555555555559999999999999992222222222222222222222");
+                    }
+
+
+            }*/
+            //sweeps_areas_polygon.sweeps_x[i] = areas.sweeps_x[i];
+
+         costmap_sweeps_point_cloud_pub.publish(cosmap_sweeps_cloud);
+       // int sweeps_x_;
+       // int sweeps_y_;
+       // sweeps_x_ = sweeps_areas_polygon.sweeps_x.size();
+       // sweeps_y_ = sweeps_areas_polygon.sweeps_y.size();
+      //  //ROS_INFO("666666666666666666666669999999999999992222222222222222222222");
+      //  //ROS_INFO("sweeps_x = %d, sweeps_y = %d", sweeps_x_ , sweeps_y_ );
+        marked_ = true;
+        ROS_ERROR("end of : BoundedExploreLayer::mapUpdateKeepObstacles");
+    }
+
+}

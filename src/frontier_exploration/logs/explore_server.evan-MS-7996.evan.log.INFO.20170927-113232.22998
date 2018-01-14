@@ -1,0 +1,15 @@
+Log file created at: 2017/09/27 11:32:32
+Running on machine: evan-MS-7996
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0927 11:32:32.711977 22998 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0927 11:32:32.712231 22998 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0927 11:32:32.712309 22998 frontier_search.cpp:35] enter into >searchFrom >start search
+I0927 11:32:32.712317 22998 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0927 11:34:54.209481 22998 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0927 11:34:54.209520 22998 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0927 11:34:54.209579 22998 frontier_search.cpp:35] enter into >searchFrom >start search
+I0927 11:34:54.209584 22998 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0927 11:36:34.612256 22998 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0927 11:36:34.612330 22998 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0927 11:36:34.612417 22998 frontier_search.cpp:35] enter into >searchFrom >start search
+I0927 11:36:34.612423 22998 frontier_search.cpp:38] enter into >searchFrom >lock costmap

@@ -1,0 +1,4 @@
+# Target labels
+ BuildOfficial
+# Source files and their labels
+/home/chenrui/catkin_ws/src/build_dir/source_dir/test/vectorwiseop.cpp

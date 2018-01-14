@@ -1,0 +1,9 @@
+BoundaryNodeRule.lo: BoundaryNodeRule.cpp /usr/include/stdc-predef.h \
+ ../../include/geos/algorithm/BoundaryNodeRule.h \
+ ../../include/geos/export.h
+
+/usr/include/stdc-predef.h:
+
+../../include/geos/algorithm/BoundaryNodeRule.h:
+
+../../include/geos/export.h:

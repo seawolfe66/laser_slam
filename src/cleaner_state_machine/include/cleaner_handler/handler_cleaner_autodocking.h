@@ -1,0 +1,146 @@
+
+#include <nodelet/nodelet.h>
+//#include <hector_nav_core/hector_move_base_handler.h>
+#include <pluginlib/class_loader.h>
+//#include <kobuki_auto_docking/auto_docking_ros.hpp>
+//#include <hector_nav_core_autodocking_plugin/hector_nav_core_autodock_plugin.h>
+
+//#include "kobuki_dock_drive/dock_drive.hpp"
+//#include "kobuki_dock_drive/state.hpp"
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+
+namespace cleaner_state_handler {
+const int PUBLISH_FREQ = 20;
+
+class HectorAutoDockingHandler : public CleanerStateHandler {
+private:
+    
+    //  pluginlib::ClassLoader<nodelet::Nodelet> exAutoDock_loader_;
+    //  boost::shared_ptr<nodelet::Nodelet> autoDock_planner_;
+
+      ros::NodeHandle private_nh_;
+
+
+      ros::Publisher command_pub_;
+      ros::Publisher stop_pub_;
+      std::string status;
+      ros::Subscriber docking_drive_feedback_sub_;
+public:
+    HectorAutoDockingHandler(cleaner_state_machine::ICleanerDataInterface* interface) : CleanerStateHandler(interface),private_nh_("~")
+    {
+        // ros::NodeHandle private_nh("~");
+         command_pub_ = private_nh_.advertise< std_msgs::String>("/dock_command", 5);
+         stop_pub_    = private_nh_.advertise< std_msgs::String>("/stop_command", 5);
+         ros::Subscriber docking_drive_feedback_sub_;
+         docking_drive_feedback_sub_ = private_nh_.subscribe("/dock_status", 5, &HectorAutoDockingHandler::resultCallback, this);
+
+         status = "IDLE"; 
+         //following code is added for test:
+         std_msgs::String msg;
+         std::stringstream ss;
+         ss << "START"; 
+         msg.data = ss.str();
+         ROS_ERROR(">>>>chenrui>>will send start command");
+
+         ros::Rate pub_rate(PUBLISH_FREQ);
+         while (ros::ok())
+         {
+                ros::spinOnce();
+                command_pub_.publish(msg);
+                pub_rate.sleep();
+         }  
+
+         
+    }
+    /** accept the status*/
+    void resultCallback(const std_msgs::String & msg) {
+
+        ROS_INFO(" the command is: %s",  msg.data.c_str());
+        status = msg.data.c_str(); 
+
+    }
+
+ 
+/*
+  ROBOT_STATE_STR[0] = "IDLE";
+  ROBOT_STATE_STR[1] = "DONE";
+  ROBOT_STATE_STR[2] = "DOCKED_IN";
+  ROBOT_STATE_STR[3] = "BUMPED_DOCK";
+  ROBOT_STATE_STR[4] = "BUMPED";
+  ROBOT_STATE_STR[5] = "SCAN";
+  ROBOT_STATE_STR[6] = "FIND_STREAM";
+  ROBOT_STATE_STR[7] = "GET_STREAM";
+  ROBOT_STATE_STR[8] = "ALIGNED";
+  ROBOT_STATE_STR[9] = "ALIGNED_FAR";
+  ROBOT_STATE_STR[10] = "ALIGNED_NEAR";
+  ROBOT_STATE_STR[11] = "UNKNOWN";
+  ROBOT_STATE_STR[12] = "LOST";
+
+*/
+    //chenrui 
+    cleaner_state_machine::RESULT handle()
+    {
+          std_msgs::String msg; 
+          std::stringstream ss; 
+             
+          if(status == "IDLE"){
+             
+                 ss << "START";
+                 msg.data = ss.str();
+                 ROS_ERROR(">>>>chenrui>>will send start command");
+
+                 ros::Rate pub_rate(PUBLISH_FREQ);
+                 while (ros::ok() && status!= "IDLE")
+                {
+                    ros::spinOnce();
+                    command_pub_.publish(msg);
+                    pub_rate.sleep();
+                }
+
+             }
+             else if(status == "DONE"){
+                 
+                 return cleaner_state_machine::NEXT;
+
+             }else if(status == "SCAN" || status == "FIND_STREAM" || status == "GET_STREAM" || status == "ALIGNED" || status == "ALIGNED_FAR" 
+                         || status == "ALIGNED_NEAR" ){
+                 return cleaner_state_machine::WAIT; 
+
+             }else if(status == "UNKNOWN" || status == "LOST"){
+                 return cleaner_state_machine::FAIL; 
+             }
+
+        return cleaner_state_machine::NEXT;
+    }
+
+
+    void abort()
+    {
+        ROS_WARN("[ddmove_base] [planning_handler] Abort was called in planning, but is not implemented.");
+
+        std_msgs::String msg;
+        std::stringstream ss;
+        ss << "STOP";
+        msg.data = ss.str();
+        int i = 0; 
+
+        ros::Rate pub_rate(PUBLISH_FREQ);
+        while (ros::ok())
+        {
+            ros::spinOnce();
+            command_pub_.publish(msg);
+            pub_rate.sleep();
+            i++; 
+            if(i > 50)
+                break;
+        }
+
+
+    }
+
+
+};
+}

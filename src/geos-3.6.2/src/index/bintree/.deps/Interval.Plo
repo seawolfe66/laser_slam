@@ -1,0 +1,9 @@
+Interval.lo: Interval.cpp /usr/include/stdc-predef.h \
+ ../../../include/geos/index/bintree/Interval.h \
+ ../../../include/geos/export.h
+
+/usr/include/stdc-predef.h:
+
+../../../include/geos/index/bintree/Interval.h:
+
+../../../include/geos/export.h:

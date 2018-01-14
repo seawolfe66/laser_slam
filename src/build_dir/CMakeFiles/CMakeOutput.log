@@ -1,0 +1,859 @@
+The system is: Linux - 4.2.0-27-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2673935010/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2673935010.dir/build.make CMakeFiles/cmTryCompileExec2673935010.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2673935010.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2673935010.dir/testCCompiler.c.o   -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec2673935010
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2673935010.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2673935010.dir/testCCompiler.c.o  -o cmTryCompileExec2673935010 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1613659123/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1613659123.dir/build.make CMakeFiles/cmTryCompileExec1613659123.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec1613659123
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1613659123.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1613659123 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1613659123' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1613659123 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1613659123/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec1613659123.dir/build.make CMakeFiles/cmTryCompileExec1613659123.dir/build]
+  ignore line: [make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec1613659123]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1613659123.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec1613659123 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec1613659123' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec1613659123 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1613659123] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec1613659123.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1647731333/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1647731333.dir/build.make CMakeFiles/cmTryCompileExec1647731333.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1647731333.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1647731333.dir/testCXXCompiler.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec1647731333
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1647731333.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTryCompileExec1647731333.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec1647731333 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec106385667/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec106385667.dir/build.make CMakeFiles/cmTryCompileExec106385667.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec106385667
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec106385667.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec106385667 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec106385667' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec106385667 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec106385667/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec106385667.dir/build.make CMakeFiles/cmTryCompileExec106385667.dir/build]
+  ignore line: [make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec106385667]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec106385667.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec106385667 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec106385667' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTryCompileExec106385667 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec106385667] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTryCompileExec106385667.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test standard_math_library_linked_to_automatically succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1666472953/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1666472953.dir/build.make CMakeFiles/cmTryCompileExec1666472953.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1666472953.dir/src.cxx.o
+/usr/bin/c++    -Dstandard_math_library_linked_to_automatically   -o CMakeFiles/cmTryCompileExec1666472953.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1666472953
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1666472953.dir/link.txt --verbose=1
+/usr/bin/c++    -Dstandard_math_library_linked_to_automatically    CMakeFiles/cmTryCompileExec1666472953.dir/src.cxx.o  -o cmTryCompileExec1666472953 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include<cmath>
+int main() { std::sin(0.0); std::log(0.0f); }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_WERROR succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec620796229/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec620796229.dir/build.make CMakeFiles/cmTryCompileExec620796229.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec620796229.dir/src.cxx.o
+/usr/bin/c++    -DCOMPILER_SUPPORT_WERROR   -Werror -o CMakeFiles/cmTryCompileExec620796229.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec620796229
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec620796229.dir/link.txt --verbose=1
+/usr/bin/c++    -DCOMPILER_SUPPORT_WERROR    CMakeFiles/cmTryCompileExec620796229.dir/src.cxx.o  -o cmTryCompileExec620796229 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_pedantic succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3781210144/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3781210144.dir/build.make CMakeFiles/cmTryCompileExec3781210144.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3781210144.dir/src.cxx.o
+/usr/bin/c++    -DCOMPILER_SUPPORT_pedantic -Werror   -pedantic -o CMakeFiles/cmTryCompileExec3781210144.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3781210144
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3781210144.dir/link.txt --verbose=1
+/usr/bin/c++    -DCOMPILER_SUPPORT_pedantic -Werror    CMakeFiles/cmTryCompileExec3781210144.dir/src.cxx.o  -o cmTryCompileExec3781210144 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wall succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3164660101/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3164660101.dir/build.make CMakeFiles/cmTryCompileExec3164660101.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3164660101.dir/src.cxx.o
+/usr/bin/c++    -pedantic -DCOMPILER_SUPPORT_Wall -Werror   -Wall -o CMakeFiles/cmTryCompileExec3164660101.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3164660101
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3164660101.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -DCOMPILER_SUPPORT_Wall -Werror    CMakeFiles/cmTryCompileExec3164660101.dir/src.cxx.o  -o cmTryCompileExec3164660101 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wextra succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3093368971/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3093368971.dir/build.make CMakeFiles/cmTryCompileExec3093368971.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3093368971.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror   -Wextra -o CMakeFiles/cmTryCompileExec3093368971.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3093368971
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3093368971.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror    CMakeFiles/cmTryCompileExec3093368971.dir/src.cxx.o  -o cmTryCompileExec3093368971 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wundef succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3571353300/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3571353300.dir/build.make CMakeFiles/cmTryCompileExec3571353300.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3571353300.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror   -Wundef -o CMakeFiles/cmTryCompileExec3571353300.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3571353300
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3571353300.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror    CMakeFiles/cmTryCompileExec3571353300.dir/src.cxx.o  -o cmTryCompileExec3571353300 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcastalign succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec741027000/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec741027000.dir/build.make CMakeFiles/cmTryCompileExec741027000.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec741027000.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror   -Wcast-align -o CMakeFiles/cmTryCompileExec741027000.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec741027000
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec741027000.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror    CMakeFiles/cmTryCompileExec741027000.dir/src.cxx.o  -o cmTryCompileExec741027000 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcharsubscripts succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3325938288/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3325938288.dir/build.make CMakeFiles/cmTryCompileExec3325938288.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3325938288.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror   -Wchar-subscripts -o CMakeFiles/cmTryCompileExec3325938288.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3325938288
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3325938288.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror    CMakeFiles/cmTryCompileExec3325938288.dir/src.cxx.o  -o cmTryCompileExec3325938288 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnonvirtualdtor succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1528929405/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1528929405.dir/build.make CMakeFiles/cmTryCompileExec1528929405.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1528929405.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror   -Wnon-virtual-dtor -o CMakeFiles/cmTryCompileExec1528929405.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1528929405
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1528929405.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror    CMakeFiles/cmTryCompileExec1528929405.dir/src.cxx.o  -o cmTryCompileExec1528929405 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wunusedlocaltypedefs succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3400695151/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3400695151.dir/build.make CMakeFiles/cmTryCompileExec3400695151.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3400695151.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wunusedlocaltypedefs -Werror   -Wunused-local-typedefs -o CMakeFiles/cmTryCompileExec3400695151.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3400695151
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3400695151.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wunusedlocaltypedefs -Werror    CMakeFiles/cmTryCompileExec3400695151.dir/src.cxx.o  -o cmTryCompileExec3400695151 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wpointerarith succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4192878614/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4192878614.dir/build.make CMakeFiles/cmTryCompileExec4192878614.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4192878614.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -DCOMPILER_SUPPORT_Wpointerarith -Werror   -Wpointer-arith -o CMakeFiles/cmTryCompileExec4192878614.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec4192878614
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4192878614.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -DCOMPILER_SUPPORT_Wpointerarith -Werror    CMakeFiles/cmTryCompileExec4192878614.dir/src.cxx.o  -o cmTryCompileExec4192878614 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wwritestrings succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2349041948/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2349041948.dir/build.make CMakeFiles/cmTryCompileExec2349041948.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2349041948.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror   -Wwrite-strings -o CMakeFiles/cmTryCompileExec2349041948.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2349041948
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2349041948.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror    CMakeFiles/cmTryCompileExec2349041948.dir/src.cxx.o  -o cmTryCompileExec2349041948 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wformatsecurity succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3915404334/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3915404334.dir/build.make CMakeFiles/cmTryCompileExec3915404334.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3915404334.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror   -Wformat-security -o CMakeFiles/cmTryCompileExec3915404334.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3915404334
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3915404334.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror    CMakeFiles/cmTryCompileExec3915404334.dir/src.cxx.o  -o cmTryCompileExec3915404334 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wlogicalop succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec685342354/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec685342354.dir/build.make CMakeFiles/cmTryCompileExec685342354.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec685342354.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wlogicalop -Werror   -Wlogical-op -o CMakeFiles/cmTryCompileExec685342354.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec685342354
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec685342354.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wlogicalop -Werror    CMakeFiles/cmTryCompileExec685342354.dir/src.cxx.o  -o cmTryCompileExec685342354 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wdoublepromotion succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3730339654/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3730339654.dir/build.make CMakeFiles/cmTryCompileExec3730339654.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3730339654.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wdoublepromotion -Werror   -Wdouble-promotion -o CMakeFiles/cmTryCompileExec3730339654.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3730339654
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3730339654.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wdoublepromotion -Werror    CMakeFiles/cmTryCompileExec3730339654.dir/src.cxx.o  -o cmTryCompileExec3730339654 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnopsabi succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2791356984/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2791356984.dir/build.make CMakeFiles/cmTryCompileExec2791356984.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2791356984.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -DCOMPILER_SUPPORT_Wnopsabi -Werror   -Wno-psabi -o CMakeFiles/cmTryCompileExec2791356984.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2791356984
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2791356984.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -DCOMPILER_SUPPORT_Wnopsabi -Werror    CMakeFiles/cmTryCompileExec2791356984.dir/src.cxx.o  -o cmTryCompileExec2791356984 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnovariadicmacros succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2014955283/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2014955283.dir/build.make CMakeFiles/cmTryCompileExec2014955283.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2014955283.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror   -Wno-variadic-macros -o CMakeFiles/cmTryCompileExec2014955283.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2014955283
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2014955283.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror    CMakeFiles/cmTryCompileExec2014955283.dir/src.cxx.o  -o cmTryCompileExec2014955283 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnolonglong succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3997131062/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3997131062.dir/build.make CMakeFiles/cmTryCompileExec3997131062.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3997131062.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror   -Wno-long-long -o CMakeFiles/cmTryCompileExec3997131062.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3997131062
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3997131062.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror    CMakeFiles/cmTryCompileExec3997131062.dir/src.cxx.o  -o cmTryCompileExec3997131062 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnochecknew succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3940226460/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3940226460.dir/build.make CMakeFiles/cmTryCompileExec3940226460.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3940226460.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnochecknew -Werror   -fno-check-new -o CMakeFiles/cmTryCompileExec3940226460.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3940226460
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3940226460.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnochecknew -Werror    CMakeFiles/cmTryCompileExec3940226460.dir/src.cxx.o  -o cmTryCompileExec3940226460 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnocommon succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2683458386/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2683458386.dir/build.make CMakeFiles/cmTryCompileExec2683458386.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2683458386.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -DCOMPILER_SUPPORT_fnocommon -Werror   -fno-common -o CMakeFiles/cmTryCompileExec2683458386.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2683458386
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2683458386.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -DCOMPILER_SUPPORT_fnocommon -Werror    CMakeFiles/cmTryCompileExec2683458386.dir/src.cxx.o  -o cmTryCompileExec2683458386 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fstrictaliasing succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3037661399/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3037661399.dir/build.make CMakeFiles/cmTryCompileExec3037661399.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3037661399.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror   -fstrict-aliasing -o CMakeFiles/cmTryCompileExec3037661399.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3037661399
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3037661399.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror    CMakeFiles/cmTryCompileExec3037661399.dir/src.cxx.o  -o cmTryCompileExec3037661399 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_ansi succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3136560940/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3136560940.dir/build.make CMakeFiles/cmTryCompileExec3136560940.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3136560940.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_ansi -Werror   -ansi -o CMakeFiles/cmTryCompileExec3136560940.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3136560940
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3136560940.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_ansi -Werror    CMakeFiles/cmTryCompileExec3136560940.dir/src.cxx.o  -o cmTryCompileExec3136560940 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_OPENMP succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3039093966/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3039093966.dir/build.make CMakeFiles/cmTryCompileExec3039093966.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3039093966.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_OPENMP   -fopenmp -o CMakeFiles/cmTryCompileExec3039093966.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3039093966
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3039093966.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_OPENMP    CMakeFiles/cmTryCompileExec3039093966.dir/src.cxx.o  -o cmTryCompileExec3039093966 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test EIGEN_COMPILER_SUPPORT_CPP11 succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec511132876/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec511132876.dir/build.make CMakeFiles/cmTryCompileExec511132876.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec511132876.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -O1 -g1 -DEIGEN_COMPILER_SUPPORT_CPP11   -std=c++11 -o CMakeFiles/cmTryCompileExec511132876.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec511132876
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec511132876.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -O1 -g1 -DEIGEN_COMPILER_SUPPORT_CPP11    CMakeFiles/cmTryCompileExec511132876.dir/src.cxx.o  -o cmTryCompileExec511132876 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2291588245/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2291588245.dir/build.make CMakeFiles/cmTryCompileExec2291588245.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2291588245.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -O1 -g1  -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec2291588245.dir/CheckSymbolExists.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTryCompileExec2291588245
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2291588245.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -O1 -g1     CMakeFiles/cmTryCompileExec2291588245.dir/CheckSymbolExists.cxx.o  -o cmTryCompileExec2291588245 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+File /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C++ SOURCE FILE Test EIGEN_COMPILER_SUPPORT_CXX11 succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1884840515/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1884840515.dir/build.make CMakeFiles/cmTryCompileExec1884840515.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1884840515.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DEIGEN_COMPILER_SUPPORT_CXX11   -std=c++11 -o CMakeFiles/cmTryCompileExec1884840515.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1884840515
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1884840515.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DEIGEN_COMPILER_SUPPORT_CXX11    CMakeFiles/cmTryCompileExec1884840515.dir/src.cxx.o  -o cmTryCompileExec1884840515 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the function sgemm_ exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3730708623/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3730708623.dir/build.make CMakeFiles/cmTryCompileExec3730708623.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3730708623.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -DBLAS_USE_F2C -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTryCompileExec3730708623.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3730708623
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3730708623.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTryCompileExec3730708623.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3730708623 -rdynamic -lblas 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cheev_ exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2270848287/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2270848287.dir/build.make CMakeFiles/cmTryCompileExec2270848287.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2270848287.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -DLAPACK_USE_F2C -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTryCompileExec2270848287.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2270848287
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2270848287.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTryCompileExec2270848287.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2270848287 -rdynamic -llapack -lblas 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_FASTMATH succeded with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2098895827/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2098895827.dir/build.make CMakeFiles/cmTryCompileExec2098895827.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2098895827.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_FASTMATH   -ffast-math -o CMakeFiles/cmTryCompileExec2098895827.dir/src.cxx.o -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2098895827
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2098895827.dir/link.txt --verbose=1
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -ansi -DCOMPILER_SUPPORT_FASTMATH    CMakeFiles/cmTryCompileExec2098895827.dir/src.cxx.o  -o cmTryCompileExec2098895827 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3418659061/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3418659061.dir/build.make CMakeFiles/cmTryCompileExec3418659061.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3418659061.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3418659061.dir/CheckIncludeFiles.c.o   -c /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3418659061
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3418659061.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3418659061.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3418659061 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec501721488/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec501721488.dir/build.make CMakeFiles/cmTryCompileExec501721488.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec501721488.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec501721488.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec501721488
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec501721488.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec501721488.dir/CheckFunctionExists.c.o  -o cmTryCompileExec501721488 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec309983464/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec309983464.dir/build.make CMakeFiles/cmTryCompileExec309983464.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec309983464.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec309983464.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec309983464
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec309983464.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec309983464.dir/CheckFunctionExists.c.o  -o cmTryCompileExec309983464 -rdynamic -lX11 -lXext 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec713553692/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec713553692.dir/build.make CMakeFiles/cmTryCompileExec713553692.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec713553692.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec713553692.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec713553692
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec713553692.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec713553692.dir/CheckFunctionExists.c.o  -o cmTryCompileExec713553692 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec421437486/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec421437486.dir/build.make CMakeFiles/cmTryCompileExec421437486.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec421437486.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec421437486.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec421437486
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec421437486.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec421437486.dir/CheckFunctionExists.c.o  -o cmTryCompileExec421437486 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1958773301/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1958773301.dir/build.make CMakeFiles/cmTryCompileExec1958773301.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1958773301.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec1958773301.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1958773301
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1958773301.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec1958773301.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1958773301 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec211905489/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec211905489.dir/build.make CMakeFiles/cmTryCompileExec211905489.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec211905489.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec211905489.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec211905489
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec211905489.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec211905489.dir/CheckFunctionExists.c.o  -o cmTryCompileExec211905489 -rdynamic 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1267040402/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1267040402.dir/build.make CMakeFiles/cmTryCompileExec1267040402.dir/build
+make[1]: Entering directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1267040402.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec1267040402.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1267040402
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1267040402.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec1267040402.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1267040402 -rdynamic -lICE 
+make[1]: Leaving directory `/home/chenrui/catkin_ws/src/build_dir/CMakeFiles/CMakeTmp'
+
+

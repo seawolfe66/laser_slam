@@ -1,0 +1,29 @@
+### Mapper ################################################
+
+grid_resolution: 0.01
+range_threshold: 8
+map_update_rate: 20
+publish_pose_graph: true
+max_covariance: 0.1
+transform_publish_period: 0.05     #original 0.05
+min_map_size: 20
+min_radius:  0.2
+# laser_frame: laser_sensor_link
+# robot_frame: base_link
+# odometry_frame: odom
+# offset_frame: offset
+# map_frame: map
+
+### Localizer #############################################
+
+min_particles: 500
+max_particles: 1000
+
+### Karto #################################################
+
+# For a full list of available parameters and their
+# corresponding default values, see OpenKarto/OpenMapper.h
+
+MinimumTravelDistance: 0.2
+MinimumTravelHeading: 0.32
+LoopSearchMaximumDistance: 6.0

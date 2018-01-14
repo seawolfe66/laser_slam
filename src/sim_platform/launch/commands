@@ -1,0 +1,9 @@
+1. roslaunch turtlebot_bringup minimal.launch 
+2. 启动任何一个slam算法
+    (1) roslaunch sim_platform demo_cartographer_lidar_2d.launch
+    (2) roslaunch sim_platform nav2d_demo.launch
+    (3) roslaunch sim_platform hector_mapping_demo.launch
+    (4) roslaunch sim_platform demo_karto_slam.launch
+3. rosrun sim_platform PolygonGather
+4. rosrun sim_platform path_planner.py
+5. rosrun dem_wall_following wallFollowing

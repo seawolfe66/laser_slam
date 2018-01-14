@@ -1,0 +1,5 @@
+<launch>  
+<!-- Additional tf publishers to integrate the kinect into the kinematic chain. --> 
+<node pkg="tf" type="static_transform_publisher" name="calibration_publisher_11" args="0.06626 -0.06405 0.00353 -0.003369 0.008829 0.00597 0.999937 camera_left_frame kinect_depth_frame 100"/>
+<node pkg="tf" type="static_transform_publisher" name="calibration_publisher_12" args="0.025000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 kinect_depth_frame kinect_rgb_frame 100"/> 
+</launch>

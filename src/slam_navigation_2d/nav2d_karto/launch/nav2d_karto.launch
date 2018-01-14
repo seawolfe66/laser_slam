@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<launch>
+  <!-- 3D sensor -->
+  <!--arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/-->
+  <!-- r200, kinect, asus_xtion_pro -->
+
+  <!-- include file="$(find turtlebot_bringup)/launch/3dsensor.launch"-->
+    <!--arg name="rgb_processing" value="false" /-->
+    <!--arg name="depth_registration" value="false" /-->
+    <!--arg name="depth_processing" value="false" /-->
+    <!-- We must specify an absolute topic name because if not it will be prefixed by "$(arg camera)".
+         Probably is a bug in the nodelet manager: https://github.com/ros/nodelet_core/issues/7 -->
+
+    <!--arg name="scan_topic" value="/scan" /-->
+  <!--/include-->
+
+<!--
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" >
+        <param name="frame_id" type="string" value="laser_link"/>
+  </include>
+-->
+
+<!-- Gmapping -->
+  <!-- arg name="custom_gmapping_launch_file" default="$(find turtlebot_navigation)/launch/includes/gmapping/$(arg 3d_sensor)_gmapping.launch.xml"/-->
+
+  <param name="/use_sim_time" value="true"/>
+  <rosparam file="$(find nav2d_karto)/launch/param/ros.yaml"/>
+  <node name="Mapper" pkg="nav2d_karto" type="mapper" output="screen">
+  <rosparam file="$(find nav2d_karto)/launch/param/mapper.yaml"/>
+  </node>
+
+  <!-- Move base -->
+  <!--include file="$(find sim_platform)/launch/move_base.launch"/-->
+  <!--
+    <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server" output="screen">
+    <param name="target_frame_name" type="string" value="/map" />
+    <param name="source_frame_name" type="string" value="/base_link" />
+    <param name="trajectory_update_rate" type="double" value="4" />
+    <param name="trajectory_publish_rate" type="double" value="0.25" />
+</node>
+   -->
+  <node name="RVIZ" pkg="rviz" type="rviz" args=" -d $(find nav2d_karto)/launch/nav2d_karto.rviz" />
+
+<include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
+<node pkg="tf" type="static_transform_publisher" name="link0_broadcaster" args="0 0 0 0 0 0 odom map 100" />
+
+
+</launch>

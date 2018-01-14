@@ -1,0 +1,33 @@
+Cleaner state machine execute steps:
+   1. roslaunch sim_platform sim_platform.launch
+   2. roslaunch frontier_exploration exploration.launch
+   3. rosrun sweeps_areas sweeps_areas 
+   4. rviz
+   5. rosrun sim_platform path_planner.py 
+   5. rosrun cleaner_state_machine cleaner_state_machine
+
+path_planner.py -- BUGS report
+  1. When calling 'rotation_tf_from_longest_edge' function addressing in file maptools.py, if variable 'dx' is equal to zero, then the zero division error would happen. We can modify the last line to codes below:
+/****************************/
+    if dx != 0 :
+        deg = atan(dy/dx)
+    else :
+        deg = pi * 0.5
+
+    return RotationTransform(degrees(deg)) 
+/****************************/
+  2. In the function of 'plan_path' for the file path_planner.py, when calling RotationTransform, it passed wrong angle unit which should be degree instead of radian.So we should modify the parameters from rotation.w to rotation.angle like below:
+	rotation = RotationTransform(rotation.angle + degrees)
+
+
+
+Cleaner state machine execute steps:
+   1. roslaunch sim_platform sim_platform.launch
+   2. roslaunch sim_platform nav2dkarto_slam_sim.launch
+   3. roslaunch frontier_exploration exploration.launch
+   4. rosrun sweeps_areas sweeps_areas 
+   5. rviz
+   6. rosrun sim_platform path_planner.py 
+   7. rolaunch sim_platform move_base.launch
+   8. rosrun cleaner_state_machine cleaner_state_machine
+

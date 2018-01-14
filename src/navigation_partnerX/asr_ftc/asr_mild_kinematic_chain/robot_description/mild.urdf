@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<robot name="mild">
+  <link name="base_link">
+    <visual>
+            <geometry>
+                <mesh filename="package://asr_mild_kinematic_chain/robot_description/mild.dae"/>
+            </geometry>
+            <origin xyz="-0.03 -0.03 0" rpy="0 0 -1.57"/>
+        </visual>
+    </link>
+  <link name="base_laser"/>
+  <link name="camera_left_frame"/>
+   <link name="camera_right_frame"/>
+  <link name="ptu_base_link"/>
+  <link name="ptu_pan_link_rotated" /> 
+  <link name="ptu_tilted_link" />
+  <link name="ptu_mount_link" >
+  <visual>
+        <geometry>
+                <mesh filename="package://asr_mild_kinematic_chain/robot_description/camera.dae"/>
+        </geometry>
+	<origin xyz="0 0.01 0.005" rpy="-1.5708 0 -1.5708"/>
+      </visual>
+      </link>
+  <link name="ptu_tilt_link">
+      <visual>
+	<material name="ptu_body_color">
+          <color rgba="0.3 0.3 0.3 1.0" />
+        </material>
+        <geometry>
+          <box size="0.066 0.06 0.05" />
+        </geometry>
+        <origin xyz="-0.025 0.01 -0.01" />
+      </visual>
+      <visual>
+        <geometry>
+          <cylinder length="0.015" radius="0.005" />
+        </geometry>
+        <origin xyz="-0.064 0.011 -0.01" rpy="0 1.57 0" />
+      </visual>
+    </link>
+  <link name="ptu_pan_link">
+      <visual>
+	<material name="ptu_body_color">
+          <color rgba="0.3 0.3 0.3 1.0" />
+        </material>
+        <geometry>
+          <box size="0.076 0.064 0.064" />
+        </geometry>
+        <origin xyz="-0.025 0.01 0" />
+      </visual>
+      <visual>
+        <geometry>
+          <cylinder length="0.015" radius="0.005" />
+        </geometry>
+        <origin xyz="-0.074 0.011 0" rpy="0 1.57 0" />
+      </visual>
+      <visual>
+        <geometry>
+          <box size="0.18 0.064 0.014" />
+        </geometry>
+        <origin xyz="-0.025 0.01 -0.04" />
+      </visual>
+    </link>
+       
+   
+    <joint name="base_to_laser" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_laser"/>
+        <origin xyz=".27 0 .22"/>
+    </joint>
+    
+    <joint name="base_to_ptu" type="fixed">
+        <parent link="base_link"/>
+        <child link="ptu_base_link"/>
+        <origin xyz="0.0 -0.03 1.425"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="ptu_to_rviz" args="0 0 0 0 3.14159265359 0 PTU map 100"/>
+    </joint>
+
+    <joint name="ptu_base" type="fixed">
+      <parent link="ptu_base_link"/>
+      <child link="ptu_pan_link"/>
+      <origin xyz="0 -0.011 0.022"/>
+    </joint>
+
+    <!-- The pan joint - rotates around y -->
+    <joint name="ptu_pan" type="revolute">
+      <parent link="ptu_pan_link" />
+      <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+      <child link="ptu_pan_link_rotated" />
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <limit lower="-45" upper="45"
+             effort="30" velocity="1900"/>
+    </joint>
+    
+    <!--static transformation between pan and tilt joint-->
+    <joint name="ptu_pan_to_tilt" type="fixed">
+      <parent link="ptu_pan_link_rotated" />
+      <origin xyz="0 0 0.066" rpy="0 0 0" />
+      <child link="ptu_tilt_link" />
+    </joint>
+
+    <!-- The tilt joint - rotates around y -->
+    <joint name="ptu_tilt" type="revolute">
+      <parent link="ptu_tilt_link" />
+      <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+      <child link="ptu_tilted_link" />
+      <axis xyz="0 1 0" />
+      <limit lower="-46.647514" upper="31.012625"
+             effort="30" velocity="1900"/>
+    </joint>
+
+    <!-- Fixed joint to provide a convenient attachment point for accessories. -->
+    <joint name="ptu_mount" type="fixed">
+      <parent link="ptu_tilted_link"/>
+      <child link="ptu_mount_link"/>
+      <origin xyz="0 0 -0.03912" rpy="0 0 0" />
+    </joint>
+
+    <!-- Translates between z-Axes convention (z-Axes along optical axis for camera) -->
+    <!-- Defines camera offset to ptu base  -->
+    <joint name="mount_to_camera_right" type="fixed">
+        <parent link="ptu_mount_link"/>
+        <child link="camera_right_frame"/>
+        <origin xyz="0 -0.072 0.04" rpy="-1.570796327 0 -1.570796327"/>
+    </joint>
+    <joint name="mount_to_camera_left" type="fixed">
+        <parent link="ptu_mount_link"/>
+        <child link="camera_left_frame"/>
+	<origin xyz="0 0.081 0.04" rpy="-1.570796327 0 -1.570796327"/>
+    </joint>
+  
+</robot>
+

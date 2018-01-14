@@ -1,0 +1,121 @@
+#include "node_wallFollowing.h"
+#include <math.h>
+#define PI 3.141592		//!<Mathematical constant (default value: 3.141592).	
+#define WALL_DISTANCE 0.2	//!<This is desired distance between robot and followed wall (default value: 0.6.
+#define DIRECTION -1		//!<1 for wall on the right side of the robot (-1 for the left one).
+/*! \brief Minimal speed, robot is allowed to go.
+ * 
+ * Minimum speed ensures, that robot does not stop, if it is too far 
+ * (or close) from wall (default value: 0.1). If the value is too high, 
+ * diference from desired wall distance might be too high as well and 
+ * robot will have problems with following. If it is too low, robot will 
+ * almost stop at corners and it will take lot of time, before he will 
+ * be going faster.
+ */
+#define MINIMUM_SPEED 0.1
+#define MAXIMUM_SPEED 0.3	//!<Maximum speed, robot is allowed to go (default value: 0.7).
+
+//Constructor and destructor
+NodeWallFollowing::NodeWallFollowing(ros::Publisher pub)
+{
+	distMin = 0;	//minimum distance masured by sensor
+	angleMin = 0;	//angle, at which was measured the shortest distance
+	go = 1;			//in case of obstacle, change to 0
+	pubMessage = pub;
+}
+
+NodeWallFollowing::~NodeWallFollowing()
+{
+}
+
+//Publisher
+void NodeWallFollowing::publishMessage()
+{
+	//preparing message
+	geometry_msgs::Twist msg;
+	
+	//If the robot is too far from the wall/the nearest obstacle 
+	//(represented by angleMin, distMin), it turns in direction, where
+	//the nearest obstacle is and goes that way in MAXIMUM_SPEED
+	if (distMin > WALL_DISTANCE+0.2)
+	{
+		msg.angular.z = angleMin;
+		msg.linear.x = MAXIMUM_SPEED;
+	}
+	
+	//robot is near the wall
+	else
+	{
+		//diference from desired angle
+		double angleDiff = (angleMin + DIRECTION*PI/2);
+		
+		//Checking the angle
+		if (fabs(angleDiff) < 0.2){
+			go = 1;
+		}
+		
+		//Checking the obstacle
+		if (distFront < WALL_DISTANCE){
+			go = 0;
+		 }
+		 
+		 ROS_INFO("angleDiff=%f, go=%d", angleDiff, go);
+	
+		//diference from desired distance
+		double distDiff = WALL_DISTANCE-distMin;
+		
+		//setting desired angle
+		msg.angular.z = (1-0.5*go)*angleDiff + (go+1)*DIRECTION*distDiff;
+		
+		//evaluating speed (if robot is near desired WALL_DISTANCE and angle, speed is higher)
+		double speedCoef = MAXIMUM_SPEED - MINIMUM_SPEED - 0.3*fabs(angleDiff) - fabs(distDiff*(1/WALL_DISTANCE));
+		
+		//deleting negative speedCoef (speed will remain at MINIMUM_SPEED)
+		if (speedCoef <0)
+		{
+			speedCoef = 0;
+		}
+		
+		//setting up the message
+		msg.linear.x = (MINIMUM_SPEED + speedCoef)*go;
+	}
+	
+	//sending information about message to console
+	ROS_INFO("Sending msg: linear.x=%f, angular.z=%f",msg.linear.x,msg.angular.z);
+	
+	//publishing message
+	pubMessage.publish(msg);
+}
+
+//Subscriber
+void NodeWallFollowing::messageCallback(const sensor_msgs::LaserScan::ConstPtr& msg)
+{
+	//Calculation of array size from angle range and angle increment.
+	int size = (int) ((msg->angle_max - msg->angle_min)/msg->angle_increment);
+	
+	//ROS_INFO("array_length: [%d]", size); 
+	
+	//Variables whith index of highest and lowest value in array.
+	int minIndex = 0;
+	
+	//This cycle goes through array and finds minimum and maximum
+	for(int i=0; i<size; i++)
+	{
+		if (msg->ranges[i] < msg->ranges[minIndex] && msg->ranges[i] > 0.0){
+			minIndex = i;
+		}
+	}
+	
+	//Calculation of angles from indexes and storing data to class variables.
+	angleMin = minIndex*msg->angle_increment + msg->angle_min;
+	distMin = msg->ranges[minIndex];
+	distFront = msg->ranges[size/2];
+	
+	//Sending info about processed data
+	ROS_INFO("min: angle=%f, distance=%f, front=%f", angleMin, distMin, distFront);
+	
+	//Invoking method for publishing message
+	publishMessage();
+}
+
+

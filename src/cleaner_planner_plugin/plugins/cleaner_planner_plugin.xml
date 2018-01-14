@@ -1,0 +1,14 @@
+<library path="lib/libcleaner_planner_plugin">
+  <class name="cleaner_global_planner/CleanerGlobalPlanner" type="cleaner_global_planner::CleanerGlobalPlanner" base_class_type="nav_core::BaseGlobalPlanner">
+    <description>
+      A simple global planner that can shift specific global planner dynamically
+    </description>
+  </class>
+  <class name="cleaner_local_planner/CleanerLocalPlanner" type="cleaner_local_planner::CleanerLocalPlanner" base_class_type="nav_core::BaseLocalPlanner">
+    <description>
+      A simple local planner that can shift specific local planner dynamically
+    </description>
+  </class>
+</library>
+
+

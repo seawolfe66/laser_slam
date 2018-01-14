@@ -1,0 +1,19 @@
+<launch>
+    <node pkg="dem_wall_following" type="wallFollowing" name="wallFollowing" output="screen">
+    <param name="Kp_fw" type="double" value="12.0"/>
+    <param name="Ki_fw" type="double" value="0.000"/>
+    <param name="Kp_lw" type="double" value="1.50"/>
+    <param name="Kp_pw" type="double" value="-5.0"/>
+    <param name="Kp_aw" type="double" value="20.0"/>
+    <param name="rotate_kp" type="double" value="1.50"/>
+    <param name="dist_fwall" type="double"  value="0.30"/> 
+    <param name="max_speed" type="double" value="0.25"/>
+    <param name="midd_speed" type="double" value="0.12"/>
+    <param name="low_speed" type="double" value="0.08"/>
+    <param name="max_angular" type="double" value="1.0"/>
+    <param name="dist_lwall" type="double" value="0.30"/>
+    <param name="angle_accuracy" type="double" value="0.2"/>
+    <param name="min_radius",type="double" value="0.1"/>
+
+    </node>
+</launch>

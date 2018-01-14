@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find turtlebot_bringup)/launch/minimal.launch">
+</include>
+
+
+<include file="$(find turtlebot_navigation)/launch/hector_mapping_demo.launch">
+</include>
+
+
+
+
+</launch>
+

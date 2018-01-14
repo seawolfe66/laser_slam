@@ -1,0 +1,7 @@
+image: sim_home_map_cartographer_0.01_2.pgm
+resolution: 0.010000
+origin: [-3.746331, -11.725446, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

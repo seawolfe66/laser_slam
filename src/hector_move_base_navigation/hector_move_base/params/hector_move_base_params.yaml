@@ -1,0 +1,42 @@
+use_exploring: false
+
+planner_patience: 3
+sq_dist_for_goal_reached: 0.25
+horizon_for_trajectory: 16
+
+time_to_trigger_exploration: 9.0
+time_to_trigger_replanning: 66.6
+
+angular_limit_for_hgp: M_PI_8
+xy_limit_for_hgp: 0.18
+
+shutdown_costmaps: false
+clearing_radius: 0.4
+footprint_padding: 0.01
+
+exploration_planner: hector_nav_core_exploration_plugin/HectorNavCoreExplorationPlugin
+global_planner: hector_exploration_planner/HectorExplorationBaseGlobalPlannerPlugin
+#path_planner: SBPLLatticePlanner
+path_planner: asr_navfn/NavfnROS
+hector_local_planner: dwa_local_planner/DWAPlannerROS
+
+recovery_behaviors: [{name: inverse_trajectory_recovery, type: inverse_trajectory_recovery/InverseTrajectoryRecovery}]
+
+SBPLLatticePlanner:
+  environment_type: XYThetaLattice
+  planner_type: ARAPlanner
+  allocated_time: 3.0
+  initial_epsilon: 3.0
+  forward_search: false
+
+
+NavfnROS:
+  visualize_potential: false    #Publish potential for rviz as pointcloud2, not really helpful, default false
+  allow_unknown: false          #Specifies whether or not to allow navfn to create plans that traverse unknown space, default true
+                                #Needs to have track_unknown_space: true in the obstacle / voxel layer (in costmap_commons_param) to work
+  planner_window_x: 0.0         #Specifies the x size of an optional window to restrict the planner to, default 0.0
+  planner_window_y: 0.0         #Specifies the y size of an optional window to restrict the planner to, default 0.0
+  
+  default_tolerance: 0.0        #If the goal is in an obstacle, the planer will plan to the nearest point in the radius of default_tolerance, default 0.0
+                                #The area is always searched, so could be slow for big values
+

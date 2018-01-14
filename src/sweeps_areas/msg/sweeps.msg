@@ -1,0 +1,5 @@
+nav_msgs/OccupancyGrid sweeps_areas
+geometry_msgs/PoseArray sweeps_poses
+float32 sweeps_areas_count
+int32 num
+

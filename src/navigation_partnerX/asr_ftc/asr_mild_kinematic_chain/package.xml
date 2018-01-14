@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+    <name>asr_mild_kinematic_chain</name>
+    <version>1.0.0</version>
+    <description>This package provides information about the mild's kinematic chain and contains launch-files to publish the chain to a robot_state_publisher</description>
+    <author>Aumann Florian, Marek Felix, Mayr Matthias, Meißner Pascal</author>
+    <maintainer email="asr-ros@lists.kit.edu">Meißner Pascal</maintainer>
+    <license>BSD</license>
+    <url type="website">http://wiki.ros.org/asr_mild_kinematic_chain</url>
+    
+    <buildtool_depend>catkin</buildtool_depend>
+</package>

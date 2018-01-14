@@ -1,0 +1,23 @@
+关于world坐标系： Hector_Move_base的代码中包含world字样，但是目前看这代码只是字符（或者代称）不代表实质意义。yaml文件的描述符中也包含world字样，但是可以改为map
+
+错误"[ERROR] [1503215517.323981435, 2443.580000000]: You are attempting to call methods on an uninitialized goal handle"的来由
+
+根据代码顺藤摸瓜，在ros/actionlib中server_goal_handle_imp.h里有多行代码包含上述错误描述字符。需要注意的是，在HectorMoveBase::abortedGoal()中点击代码中的action_server_.setAborted(result, "ABORTED");跳到simple_action_server.h中的setAborted。两个文件中的setAborted参数一样，所以应该是类的多态导致的结果。看代码，如果as_为NULL就会出现上述错误。在ros/actionlib的库中，as_的定义一般都是boost::shared_ptr<ActionServer<ActionSpec> > as_
+在server_goal_handle_imp.h中则为ActionServerBase<ActionSpec>* as_
+
+
+ros/actionlib的代码，头文件*.h定义和声明类和类成员函数和变量，*_imp.h则定义类的成员函数体（而不是放在.cpp文件中）
+浏览了actionlib中server文件夹下的各种头文件的代码，感觉hector_move_base就是类似actionlib的架构，有一些名字相近（可能功能也极为类似）的函数，不同的是hector_move_base多了状态机的切换。
+
+
+Hector_move_base对外有几个接口（就是订阅外部的topic或者service，大部分是topic）:
+(1)名为“explore”,topic类型（或者msg类型）为hector_move_base_msgs::MoveBaseActionExplore，查src文件夹下，未发现有代码发布这个类型的消息，这个数据类型也很少被使用
+(2）名为"simple_goal"，topic类型（或者msg类型）为geometry_msgs::PoseStamped。
+（3）名为“syscommand"，topic类型（或者msg类型）为std_msgs::String
+（4）名为“result”,topic类型（或者msg类型）为hector_move_base_msgs::MoveBaseActionResult,
+（5）这个是service client，名为"set_alternative_tolerances"，serviceClient类型为<monstertruck_msgs::SetAlternativeTolerance>
+
+为什么Hector_move_base中定义了三个ros::NodeHandle？分别是nh_，private_nh_，以及controller_nh。
+nh_定义为空（”“），所以nh_下定义的subscriber,没有名字前缀，比如/syscommand.
+private_nh_定义为"~"，所以private_nh_下定义的subscriber,带有名字前缀，比如/move_base/simple_goal,/move_base/explore等等
+controller_nh定义为"controller"，所以controller_nh下定义的subscriber，带有controller前缀，比如/controller/result

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <arg name="use_alternate_planner" default="false" />
+
+  <node pkg="hector_move_base" type="hector_move_base" respawn="false" name="move_base" output="screen" >
+
+    <!--<param name="SBPLLatticePlanner/primitive_filename" value="$(find hector_move_base)/mprim/crab_higher_cost_only_back.mprim" />-->
+	
+    <param name="SBPLLatticePlanner/primitive_filename" value="$(find hector_move_base)/mprim/test.out" />    
+
+    <param name="use_alternate_planner" value="$(arg use_alternate_planner)" />
+    
+    <rosparam file="$(find hector_move_base)/params/hector_move_base_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/costmap_common_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/hector_global_planner_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find hector_move_base)/params/navfn_global_planner_params.yaml" command="load" />
+    <remap from="move_base/simple_goal" to="move_base_simple/goal" />
+    <remap from="move_base/cmd_vel" to="/cmd_vel_mux/input/teleop"/>
+
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
+  <node pkg="nodelet" type="nodelet" name="mobile_base" args="load kobuki_node/KobukiNodelet mobile_base_nodelet_manager">
+    <rosparam file="$(find kobuki_node)/param/base.yaml" command="load"/>
+    <remap from="mobile_base/odom" to="odom"/>
+    <remap from="mobile_base/joint_states" to="joint_states"/>
+  </node>
+  <node pkg="nodelet" type="nodelet" name="dock_drive" args="load kobuki_auto_docking/AutoDockingNodelet mobile_base_nodelet_manager">
+    <rosparam file="$(find kobuki_auto_docking)/param/auto_docking.yaml" command="load"/>
+    <remap from="dock_drive/odom" to="odom"/>
+    <remap from="dock_drive/core" to="mobile_base/sensors/core"/>
+    <remap from="dock_drive/dock_ir" to="mobile_base/sensors/dock_ir"/>
+    <remap from="dock_drive/motor_power" to="mobile_base/commands/motor_power"/>
+    <remap from="dock_drive/velocity" to="mobile_base/commands/velocity"/>
+  </node>
+
+
+</launch>

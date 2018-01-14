@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- for home_for_show --><!--(0.5,-4.0) close small room (2.5,-6.2)-->
+   <arg name="starting_point_x" default="2.5"/>  
+   <arg name="starting_point_y" default="-6.2"/>
+   
+   <!-- for simple_for_show -->
+   <!--arg name="starting_point_x" default="0.5"/>
+   <arg name="starting_point_y" default="-0.5"/-->
+
+   <arg name="robot_name" value="mobile_base"/>
+   <arg name="base"      value="$(optenv TURTLEBOT_BASE kobuki)"/> 
+   <arg name="stacks"    value="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons --> 
+
+  <!-- Spawns Kobuki inside a Gazebo simulation -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find sim_platform)/models/robot/urdf/robot.urdf.xacro'"/> 
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_$(arg robot_name)" args="-x $(arg starting_point_x) -y $(arg starting_point_y) -z 0 -unpause -urdf -param robot_description -model $(arg robot_name)" respawn="false">
+	<!--remap from="tf" to="gazebo_tf"/-->
+  </node>
+
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="freq" value="30.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="debug" value="false"/>
+    <!--param name="publish_tf" value="false"/-->
+    <param name="self_diagnose" value="false"/>
+    <remap from="imu_data" to="/mobile_base/sensors/imu_data"/>
+  </node>
+
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+       <param name="publish_frequency" type="double" value="20.0" />
+  </node>
+
+ <node pkg="nodelet" type="nodelet" name="$(arg robot_name)_nodelet_manager" args="manager"/>
+
+
+ 
+  <node pkg="nodelet" type="nodelet" name="cmd_vel_mux"
+        args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
+    <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml" />
+    <remap from="cmd_vel_mux/output" to="mobile_base/commands/velocity"/>
+  </node>
+
+  <!-- Bumper/cliff to pointcloud (not working, as it needs sensors/core messages) -->
+  <include file="$(find turtlebot_bringup)/launch/includes/kobuki/bumper2pc.launch.xml"/>
+  
+
+  <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
+  <!--node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"  output="screen">
+    <param name="scale_linear" value="0.5" type="double"/>
+    <param name="scale_angular" value="1.5" type="double"/>
+    <remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop"/>
+  </node-->
+
+  
+</launch>

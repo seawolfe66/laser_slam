@@ -1,0 +1,12 @@
+ItemBoundable.lo: ItemBoundable.cpp /usr/include/stdc-predef.h \
+ ../../../include/geos/index/strtree/ItemBoundable.h \
+ ../../../include/geos/export.h \
+ ../../../include/geos/index/strtree/Boundable.h
+
+/usr/include/stdc-predef.h:
+
+../../../include/geos/index/strtree/ItemBoundable.h:
+
+../../../include/geos/export.h:
+
+../../../include/geos/index/strtree/Boundable.h:

@@ -1,0 +1,7 @@
+<library path="lib/liblinear_global_planner">
+  <class name="linear_global_planner/LinearGlobalPlanner" type="linear_global_planner::LinearGlobalPlanner" base_class_type="nav_core::BaseGlobalPlanner">
+    <description>
+      A simple planner that makes the linear path from start to goal 
+    </description>
+  </class>
+</library>

@@ -1,0 +1,13 @@
+<launch> <!-- Edited from https://github.com/husky/husky/blob/8cd932ac230b87ba0ce59b75908b759f4065a6c1/husky_navigation/launch/exploration.launch -->
+  <node pkg="frontier_exploration" type="frontier_explore_client" name="frontier_explore_client" output="screen"/>
+  <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
+    <param name="frequency" value="2.0"/>
+
+    <!-- Should be less than sensor range -->
+    <param name="goal_aliasing" value="0.1"/>
+    
+    <rosparam file="$(find frontier_exploration)/param/costmap_common_params.yaml" command="load" ns="explore_costmap" />
+    <rosparam file="$(find frontier_exploration)/param/costmap_exploration.yaml" command="load" ns="explore_costmap" />
+  </node>
+
+</launch>

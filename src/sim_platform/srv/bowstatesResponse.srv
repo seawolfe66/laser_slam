@@ -1,0 +1,5 @@
+geometry_msgs/PoseStamped pos
+---
+bool is_bowstate
+geometry_msgs/PoseStamped start
+geometry_msgs/PoseStamped goal

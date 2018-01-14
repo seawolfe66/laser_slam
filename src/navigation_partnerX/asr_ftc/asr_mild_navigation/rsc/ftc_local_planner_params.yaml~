@@ -1,0 +1,12 @@
+FTCPlanner:
+  max_x_vel: 0.35
+  max_rotation_vel: 1.0
+  min_rotation_vel: 0.4
+  acceleration_x: 0.35
+  acceleration_z: 0.5
+  position_accuracy: 0.2
+  rotation_accuracy: 0.3
+  slow_down_factor: 2.1
+  sim_time: 0.7
+  local_planner_frequence: 4
+  join_obstacle: false

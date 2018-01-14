@@ -1,0 +1,9 @@
+PreparedGeometry.lo: PreparedGeometry.cpp /usr/include/stdc-predef.h \
+ ../../../include/geos/geom/prep/PreparedGeometry.h \
+ ../../../include/geos/export.h
+
+/usr/include/stdc-predef.h:
+
+../../../include/geos/geom/prep/PreparedGeometry.h:
+
+../../../include/geos/export.h:

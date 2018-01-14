@@ -1,0 +1,11 @@
+<!-- Launches all launch files-->
+<launch>
+
+  <!-- Start Gazebo with an empty world -->
+  <include file="$(find sim_platform)/launch/environment.launch"/>
+<include file="$(find sim_platform)/launch/run_simulator.launch"/>
+<!--<include file="$(find hector_slam_launch)/launch/hector_mapping_rplidar.launch"/>-->
+ <include file="$(find sim_platform)/launch/gmapping_sim.launch"/> 
+<!--<include file="$(find sim_platform)/launch/base_move_base.launch"/>-->
+
+</launch>

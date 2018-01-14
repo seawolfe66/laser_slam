@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<launch>
+
+ <!-- 3D sensor -->
+  <arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/>  <!-- r200, kinect, asus_xtion_pro -->
+  <!-- Run the map server
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find sim_platform)/launch/maps/ev_office/ev_office.yaml"/> 
+	-->
+   <!--- Run AMCL 
+  <include file="$(find amcl)/examples/amcl_diff.launch" />-->
+
+ <!-- Map server -->
+  <arg name="map_file" default="$(find sim_platform)/maps/sim_walls_map_0.02.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+
+   <node name="fake_localization" pkg="fake_localization" type="fake_localization">
+        <remap from="base_pose_ground_truth" to="odom"/>
+        <param name="global_frame_id" value="map" />
+        <param name="base_frame_id" value="base_footprint" />
+        <param name="odom_frame_id" value="odom" />
+</node>
+
+   <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="hector_trajectory_server" output="screen">
+    <param name="target_frame_name" type="string" value="/map" />
+    <param name="source_frame_name" type="string" value="/base_link" />
+    <param name="trajectory_update_rate" type="double" value="4" />
+    <param name="trajectory_publish_rate" type="double" value="1" />
+  </node>
+
+</launch>

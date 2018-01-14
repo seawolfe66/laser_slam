@@ -1,0 +1,59 @@
+Log file created at: 2017/09/19 17:33:14
+Running on machine: liying-MS-7996
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0919 17:33:14.863236 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:33:14.863384 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:33:14.863432 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:33:14.863438 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:34:33.080768 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:34:33.080812 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:34:33.080991 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:34:33.081002 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:36:18.546484 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:36:18.546562 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:36:18.546886 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:36:18.546907 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:40:38.097795 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:40:38.097877 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:40:38.098019 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:40:38.098034 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:43:06.928190 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:43:06.928277 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:43:06.928473 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:43:06.928490 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:44:40.395381 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:44:40.395426 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:44:40.395531 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:44:40.395541 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:45:39.260388 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:45:39.260581 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:45:39.261720 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:45:39.261747 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:48:35.695297 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:48:35.695327 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:48:35.695430 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:48:35.695435 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:56:16.184465 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:56:16.184496 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:56:16.184540 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:56:16.184545 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 17:59:28.675607 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 17:59:28.675642 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 17:59:28.675691 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 17:59:28.675695 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 19:43:42.572371 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 19:43:42.572407 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 19:43:42.572471 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 19:43:42.572475 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 19:45:24.010937 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 19:45:24.010974 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 19:45:24.011037 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 19:45:24.011042 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 19:56:49.400816 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 19:56:49.400902 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 19:56:49.401037 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 19:56:49.401052 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap
+I0919 20:02:57.844715 24006 frontier_search.cpp:20] enter into >FrontierSearch >input frontier_point_new
+I0919 20:02:57.844746 24006 frontier_search.cpp:26] enter into >searchFrom >frontier_list
+I0919 20:02:57.844794 24006 frontier_search.cpp:35] enter into >searchFrom >start search
+I0919 20:02:57.844797 24006 frontier_search.cpp:38] enter into >searchFrom >lock costmap

@@ -1,0 +1,14 @@
+
+1. roslaunch sim_platform environment.launch
+2. roslaunch sim_platform run_simulator.launch
+3. roslaunch sim_platform gmapping_sim.launch
+4. roslaunch sim_platform move_base.launch
+5. rosrun rviz rviz 
+6. rosrun sim_platform PolygonGather
+7. rosrun sim_platform path_planner.py
+
+Notes: 
+  1. Ensure that the robot tracks with a close path without any intersection between two lines.
+  2. After a close path was drawn , the path_planner would publish the waypoints path and meanwhile send goal to move_base server.
+  3. We can use these topics including /heatmap_area as a close path area and /visualization_path as a waypoints path in rviz.
+	 

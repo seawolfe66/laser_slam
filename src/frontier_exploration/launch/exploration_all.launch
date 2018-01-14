@@ -1,0 +1,12 @@
+<launch>
+  <arg name="RVIZ_CONF" default="$(find frontier_exploration)/launch/turtlebot_exploration.rviz"/>
+
+  <!-- Move base -->
+  <!--include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml" /-->
+  <include file="$(find sim_platform)/launch/move_base.launch"/> 
+
+  <include file="$(find frontier_exploration)/launch/exploration.launch" />
+
+  <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(arg RVIZ_CONF)" /-->
+
+</launch>

@@ -1,0 +1,13 @@
+-I/home/chenrui/catkin_ws/src/build_dir/source_dir
+-I/home/chenrui/catkin_ws/src/build_dir
+-I/usr/include/qt4
+-I/usr/include/qt4/QtOpenGL
+-I/usr/include/qt4/QtGui
+-I/usr/include/qt4/QtCore
+-I/usr/include/qt4
+-DQT_OPENGL_LIB
+-DQT_GUI_LIB
+-DQT_CORE_LIB
+-o
+/home/chenrui/catkin_ws/src/build_dir/demos/opengl/quaternion_demo.moc
+/home/chenrui/catkin_ws/src/build_dir/source_dir/demos/opengl/quaternion_demo.h

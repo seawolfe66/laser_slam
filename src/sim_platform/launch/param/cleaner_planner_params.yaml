@@ -1,0 +1,7 @@
+CleanerGlobalPlanner:
+  global_planner: "global_planner/GlobalPlanner"
+
+CleanerLocalPlanner:
+  local_planner: "base_local_planner/TrajectoryPlannerROS"
+  #local_planner: "ftc_local_planner/FTCPlanner"
+
